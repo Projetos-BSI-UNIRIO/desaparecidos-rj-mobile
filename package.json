@@ -37,6 +37,15 @@
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
     "cordova-plugin-console",
+<<<<<<< HEAD
+    "cordova-plugin-device",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "ionic-plugin-keyboard"
+  ],
+  "cordovaPlatforms": [],
+  "description": "Projeto Desaparecidos: An Ionic project"
+=======
     "cordova-plugin-statusbar",
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
@@ -44,4 +53,5 @@
   ],
   "cordovaPlatforms": [],
   "description": "desaparecidos-rj-mobile-ionic2: An Ionic project"
+>>>>>>> e5279926cd024a72d0d87c34c1bf58b044b454da
 }

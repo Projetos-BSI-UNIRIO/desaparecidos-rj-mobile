@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<<<<<<< HEAD
+<widget id="com.ionicframework.projetodesaparecidos220816" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Projeto Desaparecidos</name>
+=======
 <widget id="com.ionicframework.desaparecidosrjmobileionic2537113" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>desaparecidos-rj-mobile-ionic2</name>
+>>>>>>> e5279926cd024a72d0d87c34c1bf58b044b454da
   <description>An awesome Ionic/Cordova app.</description>
   <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
   <content src="index.html"/>

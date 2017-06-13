@@ -6,6 +6,9 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'list.html'
 })
 export class ListPage {
+<<<<<<< HEAD
+  
+=======
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
@@ -34,4 +37,5 @@ export class ListPage {
       item: item
     });
   }
+>>>>>>> e5279926cd024a72d0d87c34c1bf58b044b454da
 }
