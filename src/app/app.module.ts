@@ -5,11 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-<<<<<<< HEAD
-import { Contact } from '../pages/contact/contact'; //Eu adionei, qualquer coisa só retirar
-=======
->>>>>>> e5279926cd024a72d0d87c34c1bf58b044b454da
-
+import { Contact } from '../pages/contact/contact'; 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -17,12 +13,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     MyApp,
     HomePage,
-<<<<<<< HEAD
     ListPage,
-    Contact//Eu adionei, qualquer coisa só retirar
-=======
-    ListPage
->>>>>>> e5279926cd024a72d0d87c34c1bf58b044b454da
+    Contact
   ],
   imports: [
     BrowserModule,
@@ -32,12 +24,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-<<<<<<< HEAD
     ListPage,
-    Contact//Eu adionei, qualquer coisa só retirar
-=======
-    ListPage
->>>>>>> e5279926cd024a72d0d87c34c1bf58b044b454da
+    Contact
   ],
   providers: [
     StatusBar,
