@@ -3,7 +3,6 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-<<<<<<< HEAD
     <ion-title>Busca</ion-title>
   </ion-navbar>
 </ion-header>
@@ -111,23 +110,5 @@
       <ion-input></ion-input>
     </ion-item>
   </ion-list>
-=======
-    <ion-title>List</ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
->>>>>>> e5279926cd024a72d0d87c34c1bf58b044b454da
 </ion-content>
