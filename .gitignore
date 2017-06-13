@@ -12,21 +12,6 @@ log.txt
 .vscode/
 npm-debug.log*
 
-<<<<<<< HEAD
-=======
-#NodeJS
-node_modules/
-platforms/
-plugins/
-
-#Visual Studio Code
-.vscode/
-jsconfig.json
-
-#Atom
-.editorconfig
-
->>>>>>> e5279926cd024a72d0d87c34c1bf58b044b454da
 .idea/
 .sass-cache/
 .tmp/
