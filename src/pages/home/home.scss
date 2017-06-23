@@ -1,9 +1,19 @@
-.page-home {
-      background-color: #000000;
 
+.page-home {
+      p{
+        z-index: 1;
+      }
+    .logo{
+      position:fixed;
+      right:0;
+      left:0;
+      top: 2;
+      bottom : 0;
+      z-index:-1;
+    }
     h3{
     text-align: center;
-    padding-bottom: 12px;
-    color: white;
+    color: black;
   }
+
 }
