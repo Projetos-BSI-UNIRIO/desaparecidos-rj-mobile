@@ -1,19 +1,25 @@
 
 .page-home {
-      p{
-        z-index: 1;
-      }
-    .logo{
-      position:fixed;
-      right:0;
-      left:0;
-      top: 2;
-      bottom : 0;
-      z-index:-1;
-    }
-    h3{
+
+  background-image: url('../../assets/img/logo-policia-civil.png');
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position-x: 50%;
+  background-position-y: 50%;
+
+  .logo{
+    position: fixed;
+    z-index: -1;
+  }
+
+  h3{
     text-align: center;
-    color: black;
+    font-variant: small-caps;
+  }
+
+  p{
+    text-align: justify;
+    padding: 10px;
   }
 
 }
