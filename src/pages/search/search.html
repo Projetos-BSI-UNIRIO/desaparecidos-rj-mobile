@@ -9,107 +9,141 @@
 </ion-header>
 
 <ion-content class="page-list">
-  <ion-list>
-    <ion-list-header>Dados Pessoais</ion-list-header>
-    <ion-item>
-      <ion-label color="primary" floating>Nome Completo</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
+    <ion-list>
+      <ion-list-header>Dados Pessoais</ion-list-header>
+      <ion-item>
+        <ion-label color="primary" floating>Nome Completo</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Idade</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Idade Aparente</ion-label>
+        <ion-select [(ngModel)]="idade">
+        <ion-option value="">até 18 anos</ion-option>
+        <ion-option value="">de 19 até 30 anos</ion-option>
+        <ion-option value="">de 31 até 45 anos</ion-option>
+        <ion-option value="">de 46 até 65 anos</ion-option>
+        <ion-option value="">mais de 65 anos</ion-option>
+        <ion-option value="none">nenhum</ion-option>
+        </ion-select>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Altura</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Altura</ion-label>
+        <ion-select [(ngModel)]="height">
+          <ion-option value="">Anão</ion-option>
+          <ion-option value="">até 1,60</ion-option>
+          <ion-option value="">de 1,60 até 1,70</ion-option>
+          <ion-option value="">de 1,70 até 1,80</ion-option>
+          <ion-option value="">acima de 1,80</ion-option>
+          <ion-option value="none">nenhum</ion-option>
+        </ion-select>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Sexo</ion-label>
-      <ion-select [(ngModel)]="gender">
-        <ion-option value="f">Feminino</ion-option>
-        <ion-option value="m">Masculino</ion-option>
-      </ion-select>
-    </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Sexo</ion-label>
+        <ion-select [(ngModel)]="gender">
+          <ion-option value="">Feminino</ion-option>
+          <ion-option value="">Masculino</ion-option>
+          <ion-option value="none">nenhum</ion-option>
+        </ion-select>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Nome da mãe</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Nome da mãe</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Nome do pai</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-</ion-list>
-  <ion-list>
-    <ion-list-header>Aparência</ion-list-header>
-    <ion-item>
-      <ion-label color="primary" floating>Cor de Pele</ion-label>
-      <ion-select>
-        <ion-option>Tipo 1</ion-option>
-        <ion-option>Tipo 2</ion-option>
-        <ion-option>Tipo 3</ion-option>
-      </ion-select>
-    </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Nome do pai</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-list>
 
-    <ion-item>
-      <ion-label color="primary" floating>Cor de Cabelo</ion-label>
-      <ion-select>
-        <ion-option>Cor 1</ion-option>
-        <ion-option>Cor 2</ion-option>
-        <ion-option>Cor 3</ion-option>
-      </ion-select>
-    </ion-item>
+    <ion-list>
+      <ion-list-header>Aparência</ion-list-header>
+      <ion-item>
+        <ion-label color="primary" floating>Cor de Pele</ion-label>
+        <ion-select>
+          <ion-option value="">Albina</ion-option>
+          <ion-option value="">Amarela</ion-option>
+          <ion-option value="">Branca</ion-option>
+          <ion-option value="">Negra</ion-option>
+          <ion-option value="">Parda</ion-option>
+          <ion-option value="">Vermelha</ion-option>
+          <ion-option value="none">Nenhum</ion-option>
+        </ion-select>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Cor dos olhos</ion-label>
-      <ion-select>
-        <ion-option>Cor 1</ion-option>
-        <ion-option>Cor 2</ion-option>
-        <ion-option>Cor 3</ion-option>
-      </ion-select>
-    </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Cor de Cabelo</ion-label>
+        <ion-select>
+          <ion-option value="">Aço</ion-option>
+          <ion-option value="">Branco</ion-option>
+          <ion-option value="">Castanho claro</ion-option>
+          <ion-option value="">Castanho escuro</ion-option>
+          <ion-option value="">Com mechas ou faixas</ion-option>
+          <ion-option value="">Loiro</ion-option>
+          <ion-option value="">Preto</ion-option>
+          <ion-option value="">Ruivo</ion-option>
+          <ion-option value="none">Nenhum</ion-option>
+        </ion-select>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Tipo Físico</ion-label>
-      <ion-select>
-        <ion-option>Tipo 1</ion-option>
-        <ion-option>Tipo 2</ion-option>
-        <ion-option>Tipo 3</ion-option>
-      </ion-select>
-    </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Cor dos olhos</ion-label>
+        <ion-select>
+          <ion-option value="">Azuis</ion-option>
+          <ion-option value="">Castanhos claros</ion-option>
+          <ion-option value="">Castanhos escuros</ion-option>
+          <ion-option value="">Cinzentos</ion-option>
+          <ion-option value="">Desiguais na cor</ion-option>
+          <ion-option value="">Pretos</ion-option>
+          <ion-option value="">Verdes</ion-option>
+          <ion-option value="">Violetas</ion-option>
+          <ion-option value="none">Nenhum</ion-option>
+        </ion-select>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Informações adicionais</ion-label>
-      <ion-select multiple="true">
-        <ion-option>Tatuagem</ion-option>
-        <ion-option>Cicatriz</ion-option>
-        <ion-option>Deficiente</ion-option>
-        <ion-option>Amputado</ion-option>
-      </ion-select>
-    </ion-item>
-</ion-list>
+      <ion-item>
+        <ion-label color="primary" floating>Tipo Físico</ion-label>
+        <ion-select>
+          <ion-option value="">Magro</ion-option>
+          <ion-option value="">Normal</ion-option>
+          <ion-option value="">Gordo</ion-option>
+          <ion-option value="">Forte</ion-option>
+          <ion-option value="none">Nenhum</ion-option>
+        </ion-select>
+      </ion-item>
 
+      <ion-item>
+        <ion-label color="primary" floating>Informações adicionais</ion-label>
+        <ion-select multiple="true">
+          <ion-option>Tatuagem</ion-option>
+          <ion-option>Cicatriz</ion-option>
+          <ion-option>Deficiente</ion-option>
+          <ion-option>Amputado</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
 
-<ion-list>
-    <ion-list-header>Informações sobre o desaparecimento</ion-list-header>
-    <ion-item>
-      <ion-label color="primary" floating >Data do desaparecimento</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime>
-    </ion-item>
+    <ion-list>
+      <ion-list-header>Informações sobre o desaparecimento</ion-list-header>
+      <ion-item>
+        <ion-label color="primary" floating >Data do desaparecimento</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Local do desaparecimento</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Local do desaparecimento</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Comentário sobre o desaparecimento</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-  </ion-list>
+      <ion-item>
+        <ion-label color="primary" floating>Comentário sobre o desaparecimento</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-list>
 
+    <button ion-button type="submit" block>Buscar Desaparecido</button>
 </ion-content>
