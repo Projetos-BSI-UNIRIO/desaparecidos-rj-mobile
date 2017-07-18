@@ -9,13 +9,16 @@ import { Platform } from 'ionic-angular';
 import { HomePage } from '../pages/home/home';
 import { SearchPage } from '../pages/search/search';
 import { Contact } from '../pages/contact/contact';
+import { List } from '../pages/list/list';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     SearchPage,
-    Contact
+    Contact,
+    List
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { Contact } from '../pages/contact/contact';
     MyApp,
     HomePage,
     SearchPage,
-    Contact
+    Contact,
+    List
   ],
   providers: [
     GoogleMaps,

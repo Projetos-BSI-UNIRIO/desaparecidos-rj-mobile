@@ -13,7 +13,7 @@
       <ion-list-header>Dados Pessoais</ion-list-header>
       <ion-item>
         <ion-label color="primary" floating>Nome Completo</ion-label>
-        <ion-input></ion-input>
+        <ion-input name="nome" type="text" [(ngModel)]="nomeCompleto"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -30,7 +30,7 @@
 
       <ion-item>
         <ion-label color="primary" floating>Altura</ion-label>
-        <ion-select [(ngModel)]="height">
+        <ion-select [(ngModel)]="altura">
           <ion-option value="">Anão</ion-option>
           <ion-option value="">até 1,60</ion-option>
           <ion-option value="">de 1,60 até 1,70</ion-option>
@@ -42,7 +42,7 @@
 
       <ion-item>
         <ion-label color="primary" floating>Sexo</ion-label>
-        <ion-select [(ngModel)]="gender">
+        <ion-select [(ngModel)]="sexo">
           <ion-option value="">Feminino</ion-option>
           <ion-option value="">Masculino</ion-option>
           <ion-option value="none">nenhum</ion-option>
@@ -51,12 +51,12 @@
 
       <ion-item>
         <ion-label color="primary" floating>Nome da mãe</ion-label>
-        <ion-input></ion-input>
+        <ion-input name="mae" type="text" [(ngModel)]="mae"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label color="primary" floating>Nome do pai</ion-label>
-        <ion-input></ion-input>
+        <ion-input name="pai" type="text" [(ngModel)]="pai"></ion-input>
       </ion-item>
     </ion-list>
 
@@ -64,7 +64,7 @@
       <ion-list-header>Aparência</ion-list-header>
       <ion-item>
         <ion-label color="primary" floating>Cor de Pele</ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="corPele">
           <ion-option value="">Albina</ion-option>
           <ion-option value="">Amarela</ion-option>
           <ion-option value="">Branca</ion-option>
@@ -77,7 +77,7 @@
 
       <ion-item>
         <ion-label color="primary" floating>Cor de Cabelo</ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="corCabelo">
           <ion-option value="">Aço</ion-option>
           <ion-option value="">Branco</ion-option>
           <ion-option value="">Castanho claro</ion-option>
@@ -92,7 +92,7 @@
 
       <ion-item>
         <ion-label color="primary" floating>Cor dos olhos</ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="corOlhos">
           <ion-option value="">Azuis</ion-option>
           <ion-option value="">Castanhos claros</ion-option>
           <ion-option value="">Castanhos escuros</ion-option>
@@ -107,7 +107,7 @@
 
       <ion-item>
         <ion-label color="primary" floating>Tipo Físico</ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="tipoFisico">
           <ion-option value="">Magro</ion-option>
           <ion-option value="">Normal</ion-option>
           <ion-option value="">Gordo</ion-option>
@@ -118,7 +118,7 @@
 
       <ion-item>
         <ion-label color="primary" floating>Informações adicionais</ion-label>
-        <ion-select multiple="true">
+        <ion-select multiple="true" [(ngModel)]="infoAdicionaisAparencia">
           <ion-option>Tatuagem</ion-option>
           <ion-option>Cicatriz</ion-option>
           <ion-option>Deficiente</ion-option>
@@ -131,19 +131,18 @@
       <ion-list-header>Informações sobre o desaparecimento</ion-list-header>
       <ion-item>
         <ion-label color="primary" floating >Data do desaparecimento</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="dataDesaparecimento"></ion-datetime>
       </ion-item>
 
       <ion-item>
         <ion-label color="primary" floating>Local do desaparecimento</ion-label>
-        <ion-input></ion-input>
+        <ion-input name="localDesaparecimento" type="text" placeholder="" [(ngModel)]="localDesaparecimento"></ion-input>
       </ion-item>
 
-      <ion-item>
-        <ion-label color="primary" floating>Comentário sobre o desaparecimento</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
+     
     </ion-list>
 
-    <button ion-button type="submit" block>Buscar Desaparecido</button>
+    <div padding style="text-align: center;">
+    <button ion-button (click)="goToListOfResults()">Buscar</button>
+  </div>
 </ion-content>
