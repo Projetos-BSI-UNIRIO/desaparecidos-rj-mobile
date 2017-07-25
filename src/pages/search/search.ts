@@ -94,6 +94,7 @@ envioDeDadosParaOServidor(){
   xhr.open("GET", url, true);
   xhr.setRequestHeader("Content-type", "application/json");
   xhr.send();
+  alert(url);
 }
 
 
