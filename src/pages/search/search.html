@@ -18,12 +18,12 @@
 
       <ion-item>
         <ion-label color="primary" floating>Idade Aparente</ion-label>
-        <ion-select [(ngModel)]="idade">
-        <ion-option value="">até 18 anos</ion-option>
-        <ion-option value="">de 19 até 30 anos</ion-option>
-        <ion-option value="">de 31 até 45 anos</ion-option>
-        <ion-option value="">de 46 até 65 anos</ion-option>
-        <ion-option value="">mais de 65 anos</ion-option>
+        <ion-select [(ngModel)]="idade_aparente">
+        <ion-option value="ate_18_anos">até 18 anos</ion-option>
+        <ion-option value="de_19_ate_30_anos">de 19 até 30 anos</ion-option>
+        <ion-option value="de_31_ate_45_anos">de 31 até 45 anos</ion-option>
+        <ion-option value="de_46_ate_65_anos">de 46 até 65 anos</ion-option>
+        <ion-option value="mais_de_65_anos">mais de 65 anos</ion-option>
         <ion-option value="none">nenhum</ion-option>
         </ion-select>
       </ion-item>
@@ -31,11 +31,11 @@
       <ion-item>
         <ion-label color="primary" floating>Altura</ion-label>
         <ion-select [(ngModel)]="altura">
-          <ion-option value="">Anão</ion-option>
-          <ion-option value="">até 1,60</ion-option>
-          <ion-option value="">de 1,60 até 1,70</ion-option>
-          <ion-option value="">de 1,70 até 1,80</ion-option>
-          <ion-option value="">acima de 1,80</ion-option>
+          <ion-option value="anao">Anão</ion-option>
+          <ion-option value="ate_160">até 1,60</ion-option>
+          <ion-option value="de_160_ate_170">de 1,60 até 1,70</ion-option>
+          <ion-option value="de_170_ate_180">de 1,70 até 1,80</ion-option>
+          <ion-option value="acima_de_180">acima de 1,80</ion-option>
           <ion-option value="none">nenhum</ion-option>
         </ion-select>
       </ion-item>
@@ -43,8 +43,8 @@
       <ion-item>
         <ion-label color="primary" floating>Sexo</ion-label>
         <ion-select [(ngModel)]="sexo">
-          <ion-option value="">Feminino</ion-option>
-          <ion-option value="">Masculino</ion-option>
+          <ion-option value="Feminino">Feminino</ion-option>
+          <ion-option value="Masculino">Masculino</ion-option>
           <ion-option value="none">nenhum</ion-option>
         </ion-select>
       </ion-item>
@@ -65,12 +65,12 @@
       <ion-item>
         <ion-label color="primary" floating>Cor de Pele</ion-label>
         <ion-select [(ngModel)]="corPele">
-          <ion-option value="">Albina</ion-option>
-          <ion-option value="">Amarela</ion-option>
-          <ion-option value="">Branca</ion-option>
-          <ion-option value="">Negra</ion-option>
-          <ion-option value="">Parda</ion-option>
-          <ion-option value="">Vermelha</ion-option>
+          <ion-option value="Albina">Albina</ion-option>
+          <ion-option value="Amarela">Amarela</ion-option>
+          <ion-option value="Branca">Branca</ion-option>
+          <ion-option value="Negra">Negra</ion-option>
+          <ion-option value="Parda">Parda</ion-option>
+          <ion-option value="Vermelha">Vermelha</ion-option>
           <ion-option value="none">Nenhum</ion-option>
         </ion-select>
       </ion-item>
@@ -78,14 +78,14 @@
       <ion-item>
         <ion-label color="primary" floating>Cor de Cabelo</ion-label>
         <ion-select [(ngModel)]="corCabelo">
-          <ion-option value="">Aço</ion-option>
-          <ion-option value="">Branco</ion-option>
-          <ion-option value="">Castanho claro</ion-option>
-          <ion-option value="">Castanho escuro</ion-option>
-          <ion-option value="">Com mechas ou faixas</ion-option>
-          <ion-option value="">Loiro</ion-option>
-          <ion-option value="">Preto</ion-option>
-          <ion-option value="">Ruivo</ion-option>
+          <ion-option value="Aço">Aço</ion-option>
+          <ion-option value="Branco">Branco</ion-option>
+          <ion-option value="Castanho claro">Castanho claro</ion-option>
+          <ion-option value="Castanho escuro">Castanho escuro</ion-option>
+          <ion-option value="Com mechas ou faixas">Com mechas ou faixas</ion-option>
+          <ion-option value="Loiro">Loiro</ion-option>
+          <ion-option value="Preto">Preto</ion-option>
+          <ion-option value="Ruivo">Ruivo</ion-option>
           <ion-option value="none">Nenhum</ion-option>
         </ion-select>
       </ion-item>
@@ -93,14 +93,14 @@
       <ion-item>
         <ion-label color="primary" floating>Cor dos olhos</ion-label>
         <ion-select [(ngModel)]="corOlhos">
-          <ion-option value="">Azuis</ion-option>
-          <ion-option value="">Castanhos claros</ion-option>
-          <ion-option value="">Castanhos escuros</ion-option>
-          <ion-option value="">Cinzentos</ion-option>
-          <ion-option value="">Desiguais na cor</ion-option>
-          <ion-option value="">Pretos</ion-option>
-          <ion-option value="">Verdes</ion-option>
-          <ion-option value="">Violetas</ion-option>
+          <ion-option value="Azuis">Azuis</ion-option>
+          <ion-option value="Castanhos claros">Castanhos claros</ion-option>
+          <ion-option value="Castanhos escuros">Castanhos escuros</ion-option>
+          <ion-option value="Cinzentos">Cinzentos</ion-option>
+          <ion-option value="Desiguais na cor">Desiguais na cor</ion-option>
+          <ion-option value="Pretos">Pretos</ion-option>
+          <ion-option value="Verdes">Verdes</ion-option>
+          <ion-option value="Violetas">Violetas</ion-option>
           <ion-option value="none">Nenhum</ion-option>
         </ion-select>
       </ion-item>
@@ -108,10 +108,10 @@
       <ion-item>
         <ion-label color="primary" floating>Tipo Físico</ion-label>
         <ion-select [(ngModel)]="tipoFisico">
-          <ion-option value="">Magro</ion-option>
-          <ion-option value="">Normal</ion-option>
-          <ion-option value="">Gordo</ion-option>
-          <ion-option value="">Forte</ion-option>
+          <ion-option value="Magro">Magro</ion-option>
+          <ion-option value="Normal">Normal</ion-option>
+          <ion-option value="Gordo">Gordo</ion-option>
+          <ion-option value="Forte">Forte</ion-option>
           <ion-option value="none">Nenhum</ion-option>
         </ion-select>
       </ion-item>
@@ -127,22 +127,8 @@
       </ion-item>
     </ion-list>
 
-    <ion-list>
-      <ion-list-header>Informações sobre o desaparecimento</ion-list-header>
-      <ion-item>
-        <ion-label color="primary" floating >Data do desaparecimento</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="dataDesaparecimento"></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <ion-label color="primary" floating>Local do desaparecimento</ion-label>
-        <ion-input name="localDesaparecimento" type="text" placeholder="" [(ngModel)]="localDesaparecimento"></ion-input>
-      </ion-item>
-
-     
-    </ion-list>
-
+    
     <div padding style="text-align: center;">
-    <button ion-button (click)="goToListOfResults()">Buscar</button>
+    <button ion-button (click)="irAListaDeResultados()">Buscar</button>
   </div>
 </ion-content>
