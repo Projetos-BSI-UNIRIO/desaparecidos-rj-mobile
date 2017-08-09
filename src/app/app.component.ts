@@ -13,7 +13,7 @@ import { Contact } from '../pages/contact/contact';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Contact;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -22,9 +22,9 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: Contact },
+      { title: 'Home', component: HomePage },
       { title: 'Buscar', component: SearchPage },
-      { title: 'Sobre nós', component: HomePage }
+      { title: 'Sobre nós', component:  Contact}
 
     ];
 

@@ -1,4 +1,6 @@
-page-contact {
+
+.page-contact {
+
   background: url('../assets/img/logo-policia-civil.png');
   background-repeat: no-repeat;
   background-size: 80%;
@@ -9,4 +11,20 @@ page-contact {
     position: fixed;
     z-index: -1;
   }
+  
+
+  h3{
+    text-align: center;
+    font-variant: small-caps;
+  }
+
+h4{
+    text-align: center;
+    font-variant: small-caps;
+  }
+  p{
+    text-align: center;
+    padding: 10px;
+  }
+
 }

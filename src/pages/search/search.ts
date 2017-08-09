@@ -8,7 +8,7 @@ import { NavController, NavParams } from 'ionic-angular';
   entryComponents: [List]
 })
 export class SearchPage {
-  public nomeCompleto=""; mae=""; pai=""; idade; altura; sexo; corPele; corCabelo; corOlhos; tipoFisico; infoAdicionaisAparencia; tatuagem; cicatriz; amputado; deficiente; 
+  public nomeCompleto=""; mae=""; pai=""; idade; altura; sexo; corPele; corCabelo; corOlhos; tipoFisico; infoAdicionaisAparencia; tatuagem; cicatriz; amputado; deficiente; url; 
 
 
 
@@ -66,8 +66,8 @@ dadosDesaparecido(){
     "cor_pele": this.corPele,
     "cor_cabelo": this.corCabelo,
     "faixa_altura":this.altura
-    
 }
+  
 
   return dadosDoDesaparecido;
 }
@@ -90,16 +90,20 @@ tratamentoCamposTexto(){
 
 envioDeDadosParaOServidor(){
   var xhr = new XMLHttpRequest();
-  var url = "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(this.dadosDesaparecido()));
-  xhr.open("GET", url, true);
+  this.url = "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(this.dadosDesaparecido()));
+  xhr.open("GET", this.url, true);
   xhr.setRequestHeader("Content-type", "application/json");
   xhr.send();
-  alert(url);
+  
+
 }
 
+testando(){
+    
+}
 
 irAListaDeResultados(){
-  
+  this.testando();
   this.envioDeDadosParaOServidor();
   this.navCtrl.push(List);
   }
