@@ -10,13 +10,8 @@ import { NavController, NavParams } from 'ionic-angular';
 export class SearchPage {
   public nomeCompleto=""; mae=""; pai=""; idade; altura; sexo; corPele; corCabelo; corOlhos; tipoFisico; infoAdicionaisAparencia; tatuagem; cicatriz; amputado; deficiente; url; 
 
-
-
-constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
+constructor(public navCtrl: NavController, public navParams: NavParams) {}
  
-
 tratamentoInfoAdicionais(){
   if(this.infoAdicionaisAparencia != null){
   for(var i=0; i<this.infoAdicionaisAparencia.length; i++){
@@ -67,7 +62,6 @@ dadosDesaparecido(){
     "cor_cabelo": this.corCabelo,
     "faixa_altura":this.altura
 }
-  
 
   return dadosDoDesaparecido;
 }
@@ -87,24 +81,26 @@ tratamentoCamposTexto(){
   
 
 }
+ 
 
 envioDeDadosParaOServidor(){
-  var xhr = new XMLHttpRequest();
-  this.url = "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(this.dadosDesaparecido()));
-  xhr.open("GET", this.url, true);
-  xhr.setRequestHeader("Content-type", "application/json");
-  xhr.send();
-  
-
+  // var xhr = new JSONHttpRequest();
+  // this.url = "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(this.dadosDesaparecido()));
+  // xhr.open("GET", this.url, true);
+  // xhr.send();
+   
+  // alert(this.url);
+ 
 }
 
-testando(){
+mountParamsUrl() {
     
-}
+    return "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(this.dadosDesaparecido()));
+  }
+
 
 irAListaDeResultados(){
-  this.testando();
-  this.envioDeDadosParaOServidor();
-  this.navCtrl.push(List);
+    console.log(this.mountParamsUrl());
+    this.navCtrl.push(List, { paramsUrl: this.mountParamsUrl() });       
   }
 }
