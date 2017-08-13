@@ -26,15 +26,14 @@ export class List {
       data => { this.pessoas = data.json()
         // alert("Cheguei aqui com sucesso");
         this.pessoas= this.pessoas.desaparecidos;
-        // alert(this.pessoas.desaparecidos[0].nome);
       },
 
 
 
       err => {
-      console.error(JSON.stringify(err))
-            alert("Cheguei aqui com falha");
-                  alert(JSON.stringify(err));
+        console.error(JSON.stringify(err))
+        alert("Cheguei aqui com falha");
+        alert(JSON.stringify(err));
 
 
       },
@@ -60,6 +59,6 @@ getImage(pessoa) {
 
     // alert("cheguei ate aqui");
 
-    return `http://104.131.39.194${pessoa.cartazete.url}`;
+    return `http://104.131.39.194:8000${pessoa.cartazete}`;
   }
 }
