@@ -83,24 +83,14 @@ tratamentoCamposTexto(){
 }
  
 
-envioDeDadosParaOServidor(){
-  // var xhr = new JSONHttpRequest();
-  // this.url = "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(this.dadosDesaparecido()));
-  // xhr.open("GET", this.url, true);
-  // xhr.send();
-   
-  // alert(this.url);
- 
-}
-
-mountParamsUrl() {
+montaURL() {
     
     return "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(this.dadosDesaparecido()));
   }
 
 
 irAListaDeResultados(){
-    console.log(this.mountParamsUrl());
-    this.navCtrl.push(List, { paramsUrl: this.mountParamsUrl() });       
+    console.log(this.montaURL());
+    this.navCtrl.push(List, { paramsUrl: this.montaURL() });       
   }
 }

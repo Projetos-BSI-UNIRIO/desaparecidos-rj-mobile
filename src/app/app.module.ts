@@ -10,6 +10,8 @@ import { Contact } from '../pages/contact/contact';
 import { List } from '../pages/list/list';
 import { HttpModule } from '@angular/http';
 import { WebApiService } from '../providers/web-api-service';
+import { ResultsPage } from '../pages/results/results';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { WebApiService } from '../providers/web-api-service';
     HomePage,
     SearchPage,
     Contact,
-    List
+    List,
+    ResultsPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { WebApiService } from '../providers/web-api-service';
     HomePage,
     SearchPage,
     Contact,
-    List
+    List,
+    ResultsPage
   ],
   providers: [
     StatusBar,

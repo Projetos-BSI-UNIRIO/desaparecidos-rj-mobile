@@ -22,7 +22,7 @@ export class HomePage {
  ionViewDidLoad() {
     console.log('ionViewDidLoad Contact');
   }
-goToSearchPage(){
+irParaPaginaDeBusca(){
   this.navCtrl.push(SearchPage);
-}
+  }
 }

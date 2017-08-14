@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
 import { WebApiService } from '../../providers/web-api-service';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { ResultsPage } from '../results/results';
+
 
 
 @IonicPage()
@@ -23,42 +23,35 @@ export class List {
 
     // Call API to get people searched
     this.webapi.searchPeople(this.paramsUrl).subscribe(
-      data => { this.pessoas = data.json()
-        // alert("Cheguei aqui com sucesso");
+      data => { this.pessoas = data.json()     
         this.pessoas= this.pessoas.desaparecidos;
       },
 
-
-
-      err => {
+      err => {    
         console.error(JSON.stringify(err))
-        alert("Cheguei aqui com falha");
+        alert("Cheguei aqui com falha");         
         alert(JSON.stringify(err));
-
-
       },
-      () => {
-        
-        if (JSON.stringify(this.pessoas) == "[]"){
-          alert('Empty search - render fail search page');
-          this.navCtrl.pop();
-          // this.navCtrl.push(FailSearch);
-        }
-      }
+      () => {}
     );           
-
-
   }
-
 
   ionViewDidLoad() {
     console.log('Lista teste');
   }
 
-getImage(pessoa) {
+obterImagem(pessoa) {
 
     // alert("cheguei ate aqui");
 
     return `http://104.131.39.194:8000${pessoa.cartazete}`;
   }
+
+
+irParaResultadoDaBusca(pessoa){
+    this.navCtrl.push(ResultsPage, {pessoa:pessoa});
+
+}
+
+
 }

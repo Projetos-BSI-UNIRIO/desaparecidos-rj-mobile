@@ -10,18 +10,15 @@
 
 <ion-content padding >
   <ion-card *ngFor="let pessoa of pessoas" >
-  
- 
-      <img src="{{ getImage(pessoa) }}" style="max-height: 425px;max-width: 325px;display: block;margin: auto;" />-->
-      <ion-card-content>
-        <ion-card-title >  
+    <ion-card-content style="text-align: center; background: #F2F2F2;">
+      <ion-card-title >  
           {{ pessoa.nome }}
-        </ion-card-title>
-        <br/>
-      </ion-card-content>
+      </ion-card-title>
+          <img src="{{ obterImagem(pessoa) }}" style="max-height: 425px;max-width: 325px;display: block;margin: auto;" /><br>
+          <button ion-button (click)="irParaResultadoDaBusca(pessoa)" >Buscar</button>
+    </ion-card-content>
 
 
-    <hr />
   </ion-card>
 </ion-content>
 
