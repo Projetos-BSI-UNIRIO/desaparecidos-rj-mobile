@@ -18,7 +18,6 @@ export class ResultsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.pessoa = this.navParams.get("pessoa");
-    alert(this.pessoa.nome);
  }
 
   ionViewDidLoad() {
