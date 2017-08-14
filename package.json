@@ -53,7 +53,7 @@
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [],
-  "description": "Projeto Desaparecidos: An Ionic project",
+  "description": "DDPA-RJ: An Ionic project",
   "cordova": {
     "plugins": {
       "cordova-plugin-console": {},
