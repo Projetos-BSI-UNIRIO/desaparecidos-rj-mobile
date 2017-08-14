@@ -5,7 +5,6 @@ import { ResultsPage } from '../results/results';
 
 
 
-@IonicPage()
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html',
