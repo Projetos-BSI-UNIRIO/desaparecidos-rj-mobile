@@ -26,15 +26,15 @@ tratamentoInfoAdicionais(){
           this.tatuagem = true;
         }
        
-        if(this.infoAdicionaisAparencia[i]=="Cicatriz"){
+        else if(this.infoAdicionaisAparencia[i]=="Cicatriz"){
           this.cicatriz = true;
         }
         
-        if(this.infoAdicionaisAparencia[i]=="Deficiente"){
+        else if(this.infoAdicionaisAparencia[i]=="Deficiente"){
           this.deficiente = true;
         }
         
-        if(this.infoAdicionaisAparencia[i]=="Amputado"){
+        else{
           this.amputado = true;
         }
         
