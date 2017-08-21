@@ -13,21 +13,30 @@
 </ion-header>
 
 
-<ion-content padding style="text-align:center;">
+<ion-content padding style="text-align:center;" >
   <img src="{{ obterImagem(pessoa) }}" style="max-height: 425px;max-width: 325px;display: block;margin: auto;" /><br>
 
   <ion-card>
-    <ion-card-content style="background: #F2F2F2;">
+    <ion-card-content style="background: #F2F2F2; text-align: left;">
       <ul>
-          <li>{{ pessoa.nome }}</li>
-          <li>{{ pessoa.idade_aparente }}</li>
-          <li>{{ pessoa.faixa_altura }}</li>
-          <li>{{ pessoa.nome_mae }}</li>
-          <li>{{ pessoa.nome_pai }}</li>
+          <li>Nome: {{ pessoa.nome }}</li>
+          <li>Idade: {{ pessoa.idade_aparente }}</li>
+          <li>Altura: {{ pessoa.faixa_altura }}</li>
+          <li>Sexo: {{ pessoa.sexo }}</li>
+          <li>Tipo físico: {{ pessoa.tipo_fisico }}</li>
+          <li>Cor dos olhos: {{ pessoa.cor_olhos }}</li>
+          <li>Cor do cabelo: {{ pessoa.cor_cabelo }}</li>
+          <li>Cor da pele: {{ pessoa.cor_pele }}</li>
+          <li>Tatuagem: {{ tatuagem }}</li>
+          <li>Deficiência: {{ deficiencia }}</li>
+          <li>Amputação: {{ amputacao }}</li>
+          <li>Cicatriz: {{ cicatriz }}</li>
+          <li>Nome do Pai: {{ pessoa.nome_mae }}</li>
+          <li>Nome da Mãe: {{ pessoa.nome_pai }}</li>
       </ul>  
     </ion-card-content>
 
 
   </ion-card>
-  <button ion-button (click)="irParaGeradorDeCartazete(pessoa)"> Gerar Cartazete </button><br><br>
+  <button ion-button  (click)="irParaGeradorDeCartazete(pessoa)"> Gerar Cartazete </button><br><br>
 </ion-content>
