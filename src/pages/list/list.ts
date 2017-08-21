@@ -34,7 +34,7 @@ irParaResultadoDaBusca(pessoa){
 
 }
 
-teste(){
+botaoVoltar(){
   this.navCtrl.pop();
 }
 

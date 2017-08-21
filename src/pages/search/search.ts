@@ -19,35 +19,33 @@ constructor(public navCtrl: NavController, public navParams: NavParams, private 
 }
  
 tratamentoInfoAdicionais(){
-  if(this.infoAdicionaisAparencia != null){
-  for(var i=0; i<this.infoAdicionaisAparencia.length; i++){
-    
-      if(this.infoAdicionaisAparencia[i]=="Tatuagem"){
-        this.tatuagem = true;
-      }
-      else{
-        this.tatuagem=false;
-      }
-      if(this.infoAdicionaisAparencia[i]=="Cicatriz"){
-        this.cicatriz = true;
-      }
-      else{
-        this.cicatriz=false;
-      }
-      if(this.infoAdicionaisAparencia[i]=="Deficiente"){
-        this.deficiente = true;
-      }
-      else{
-        this.deficiente=false;
-      }
-      if(this.infoAdicionaisAparencia[i]=="Amputado"){
-        this.amputado = true;
-      }
-      else{
-        this.amputado=false;
+  if(this.infoAdicionaisAparencia != ""){
+    for(var i=0; i<this.infoAdicionaisAparencia.length; i++){
+      
+        if(this.infoAdicionaisAparencia[i]=="Tatuagem"){
+          this.tatuagem = true;
+        }
+       
+        if(this.infoAdicionaisAparencia[i]=="Cicatriz"){
+          this.cicatriz = true;
+        }
+        
+        if(this.infoAdicionaisAparencia[i]=="Deficiente"){
+          this.deficiente = true;
+        }
+        
+        if(this.infoAdicionaisAparencia[i]=="Amputado"){
+          this.amputado = true;
+        }
+        
       }
     }
-  }
+    else{
+      this.amputado=undefined;
+      this.cicatriz=undefined;
+      this.tatuagem=undefined;     
+      this.deficiente=undefined;
+    }
 }
 dadosDesaparecido(){
     this.tratamentoInfoAdicionais();
@@ -68,7 +66,6 @@ dadosDesaparecido(){
     "cor_cabelo": this.corCabelo,
     "faixa_altura":this.altura
 }
-
   return dadosDoDesaparecido;
 }
 
@@ -88,38 +85,67 @@ tratamentoCamposTexto(){
 
 }
  
-montaURL() {
-    
-
-    return "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(this.dadosDesaparecido()));
-
-  }
-
+montaURL(jsonDeEntrada) {
+    return "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));
+}
 
 recebendoResultado(){
-      // Call API to get people searched
-      this.webapi.searchPeople(this.montaURL()).subscribe(
-        data => { this.pessoas = data.json();     
-          this.pessoas= this.pessoas.desaparecidos;
-          if(this.pessoas.length==0){
-            this.navCtrl.push(NoResultsPage);          
-          }
-          else{
-            this.navCtrl.push(List, {"pessoa": this.pessoas});  
-          }
-        },
-  
-        err => {    
-
-          // console.error(JSON.stringify(err))
-          // alert("Cheguei aqui com falha");         
-          // alert(JSON.stringify(err));
-          this.navCtrl.push(NoResultsPage);
+    // Call API to get people searched
+    this.webapi.searchPeople(this.montaURL(this.dadosDesaparecido())).subscribe(
+      data => { this.pessoas = data.json();     
+        this.pessoas= this.pessoas.desaparecidos;
+        if(this.pessoas.length==0){
+          this.navCtrl.push(NoResultsPage);   
+        }
+        else{
+          this.navCtrl.push(List, {"pessoa": this.pessoas});  
           
-        },
-        () => {}
-      );  
+        }
+      },
+
+      err => {    
+
+        // console.error(JSON.stringify(err))
+        // alert("Cheguei aqui com falha");         
+        // alert(JSON.stringify(err));
+        this.navCtrl.push(NoResultsPage);
+        
+      },
+      () => {}
+    );  
   }
+
+  ionViewWillEnter(){
+    this.montaURL([]);
+    this.nomeCompleto ="";
+    this.pai ="";
+    this.mae ="";
+    this.infoAdicionaisAparencia=[];
+    this.idade = undefined;
+    this.tipoFisico = undefined;
+    this.corOlhos =undefined;
+    this.corPele =undefined,
+    this.corCabelo =undefined;
+    this.altura =undefined;
+    this.sexo=undefined;
+}
+
+
+ionViewWillLeave(){   
+  this.dadosDesaparecido();
+  
+  this.infoAdicionaisAparencia=[];
+  this.nomeCompleto ="";
+  this.pai ="";
+  this.mae ="";
+  this.idade = null;
+  this.tipoFisico = null;
+  this.corOlhos =null;
+  this.corPele =null,
+  this.corCabelo =null;
+  this.altura =null;
+  this.sexo=null;
+}
 
 
 
