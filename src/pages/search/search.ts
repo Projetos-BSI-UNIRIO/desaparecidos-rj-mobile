@@ -1,16 +1,22 @@
 import { Component } from '@angular/core';
 import { List } from '../list/list';
 import { NavController, NavParams } from 'ionic-angular';
+import { NoResultsPage } from '../no-results/no-results';
+import { WebApiService } from '../../providers/web-api-service';
 
 @Component({
   selector: 'page-list',
   templateUrl: 'search.html',
-  entryComponents: [List]
+  entryComponents: [List],
+  providers: [WebApiService]
 })
+
 export class SearchPage {
   public nomeCompleto=""; mae=""; pai=""; idade; altura; sexo; corPele; corCabelo; corOlhos; tipoFisico; infoAdicionaisAparencia; tatuagem; cicatriz; amputado; deficiente; url; 
-
-constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  public pessoas; 
+  
+constructor(public navCtrl: NavController, public navParams: NavParams, private webapi: WebApiService) {
+}
  
 tratamentoInfoAdicionais(){
   if(this.infoAdicionaisAparencia != null){
@@ -82,15 +88,39 @@ tratamentoCamposTexto(){
 
 }
  
-
 montaURL() {
     
+
     return "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(this.dadosDesaparecido()));
+
   }
 
 
-irAListaDeResultados(){
-    console.log(this.montaURL());
-    this.navCtrl.push(List, { paramsUrl: this.montaURL() });       
+recebendoResultado(){
+      // Call API to get people searched
+      this.webapi.searchPeople(this.montaURL()).subscribe(
+        data => { this.pessoas = data.json();     
+          this.pessoas= this.pessoas.desaparecidos;
+          if(this.pessoas.length==0){
+            this.navCtrl.push(NoResultsPage);          
+          }
+          else{
+            this.navCtrl.push(List, {"pessoa": this.pessoas});  
+          }
+        },
+  
+        err => {    
+
+          // console.error(JSON.stringify(err))
+          // alert("Cheguei aqui com falha");         
+          // alert(JSON.stringify(err));
+          this.navCtrl.push(NoResultsPage);
+          
+        },
+        () => {}
+      );  
   }
+
+
+
 }

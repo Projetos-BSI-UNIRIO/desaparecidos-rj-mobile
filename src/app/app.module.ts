@@ -11,6 +11,9 @@ import { List } from '../pages/list/list';
 import { HttpModule } from '@angular/http';
 import { WebApiService } from '../providers/web-api-service';
 import { ResultsPage } from '../pages/results/results';
+import { NoResultsPage } from '../pages/no-results/no-results';
+import { CartazeteGeneratorPage } from '../pages/cartazete-generator/cartazete-generator';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 @NgModule({
@@ -20,7 +23,9 @@ import { ResultsPage } from '../pages/results/results';
     SearchPage,
     Contact,
     List,
-    ResultsPage
+    ResultsPage,
+    NoResultsPage,
+    CartazeteGeneratorPage
   ],
   imports: [
     BrowserModule,
@@ -34,12 +39,15 @@ import { ResultsPage } from '../pages/results/results';
     SearchPage,
     Contact,
     List,
-    ResultsPage
+    ResultsPage,
+    NoResultsPage,
+    CartazeteGeneratorPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     [WebApiService],
+    SocialSharing,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

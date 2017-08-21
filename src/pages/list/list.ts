@@ -1,38 +1,22 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams} from 'ionic-angular';
-import { WebApiService } from '../../providers/web-api-service';
+import { NavController, NavParams} from 'ionic-angular';
 import { ResultsPage } from '../results/results';
 
 
 
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html',
-  providers: [WebApiService],
+  templateUrl: 'list.html'
 
 })
 export class List {
 
  public paramsUrl;
  public pessoas;
- public teste;
 
-  constructor(public navCtrl: NavController, private navParams: NavParams, private webapi: WebApiService) {
-    this.paramsUrl = navParams.get('paramsUrl');
+  constructor(public navCtrl: NavController, private navParams: NavParams) {
+    this.pessoas = navParams.get('pessoa');
 
-    // Call API to get people searched
-    this.webapi.searchPeople(this.paramsUrl).subscribe(
-      data => { this.pessoas = data.json()     
-        this.pessoas= this.pessoas.desaparecidos;
-      },
-
-      err => {    
-        console.error(JSON.stringify(err))
-        alert("Cheguei aqui com falha");         
-        alert(JSON.stringify(err));
-      },
-      () => {}
-    );           
   }
 
   ionViewDidLoad() {
@@ -41,9 +25,7 @@ export class List {
 
 obterImagem(pessoa) {
 
-    // alert("cheguei ate aqui");
-
-    return `http://104.131.39.194:8000${pessoa.cartazete}`;
+    return `http://104.131.39.194:8000${pessoa.foto}`;
   }
 
 
@@ -52,5 +34,8 @@ irParaResultadoDaBusca(pessoa){
 
 }
 
+teste(){
+  this.navCtrl.pop();
+}
 
 }

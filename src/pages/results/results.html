@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content padding >
+<ion-content padding style="text-align:center;">
   <img src="{{ obterImagem(pessoa) }}" style="max-height: 425px;max-width: 325px;display: block;margin: auto;" /><br>
 
   <ion-card>
@@ -29,4 +29,5 @@
 
 
   </ion-card>
+  <button ion-button (click)="irParaGeradorDeCartazete(pessoa)"> Gerar Cartazete </button><br><br>
 </ion-content>

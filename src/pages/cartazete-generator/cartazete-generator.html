@@ -1,0 +1,25 @@
+<!--
+  Generated template for the CartazeteGeneratorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cartazete de {{pessoa.nome}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+    <img src="{{ obterImagem(pessoa) }}" style="max-height: 425px;max-width: 325px;display: block;margin: auto;" /><br>
+    <h5 style="text-align: left;">Compartilhe nas redes sociais: </h5>
+    <ul id="icones" style="text-align: center; ">
+      <li><img src="assets/img/facebook_icon.png" style="max-height: 45px;max-width: 45px;"(click)="facebookShare()"></li>
+      <li><img src="assets/img/twitter_icon.png" style="max-height: 45px;max-width: 45px;"(click)="twitterShare()"></li>
+      <li><img src="assets/img/whatsapp_icon.png" style="max-height: 42px;max-width: 42px;" (click)="whatsappShare()"></li>
+    </ul>
+ 
+  </ion-content>

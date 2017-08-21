@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { CartazeteGeneratorPage } from '../cartazete-generator/cartazete-generator';
 
 /**
  * Generated class for the ResultsPage page.
@@ -26,5 +27,13 @@ export class ResultsPage {
 obterImagem(){
     return `http://104.131.39.194:8000${this.pessoa.foto}`;
   }
+
+
+
+irParaGeradorDeCartazete(pessoa){
+  this.navCtrl.push(CartazeteGeneratorPage, {pessoa:pessoa});
+
+}
+
 
 }
