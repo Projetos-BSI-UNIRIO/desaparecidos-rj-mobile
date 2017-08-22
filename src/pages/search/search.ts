@@ -120,7 +120,6 @@ recebendoResultado(){
     this.nomeCompleto ="";
     this.pai ="";
     this.mae ="";
-    this.infoAdicionaisAparencia=[];
     this.idade = undefined;
     this.tipoFisico = undefined;
     this.corOlhos =undefined;
@@ -128,6 +127,10 @@ recebendoResultado(){
     this.corCabelo =undefined;
     this.altura =undefined;
     this.sexo=undefined;
+    this.amputado=undefined;
+    this.cicatriz=undefined;
+    this.tatuagem=undefined;     
+    this.deficiente=undefined;
 }
 
 
