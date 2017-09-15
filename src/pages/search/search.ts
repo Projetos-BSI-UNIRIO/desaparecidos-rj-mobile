@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { List } from '../list/list';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { NoResultsPage } from '../no-results/no-results';
 import { WebApiService } from '../../providers/web-api-service';
 
@@ -15,7 +15,7 @@ export class SearchPage {
   public nomeCompleto=""; mae=""; pai=""; idade; altura; sexo; corPele; corCabelo; corOlhos; tipoFisico; infoAdicionaisAparencia; tatuagem; cicatriz; amputado; deficiente; url; 
   public pessoas; 
   
-constructor(public navCtrl: NavController, public navParams: NavParams, private webapi: WebApiService) {
+constructor(public navCtrl: NavController, public navParams: NavParams, private webapi: WebApiService, public loadingCtrl: LoadingController) {
 }
  
 tratamentoInfoAdicionais(){
@@ -85,6 +85,18 @@ tratamentoCamposTexto(){
 
 }
  
+carregamentoDePagina(nomeDaPagina, dadosDaPagina = null){
+  let loading = this.loadingCtrl.create({
+    content: 'Carregando...'
+  });
+
+  loading.present();
+
+  loading.dismiss().then(() => {
+    this.navCtrl.push(nomeDaPagina, dadosDaPagina);   
+});
+}
+
 montaURL(jsonDeEntrada) {
     return "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));
 }
@@ -95,20 +107,18 @@ recebendoResultado(){
       data => { this.pessoas = data.json();     
         this.pessoas= this.pessoas.desaparecidos;
         if(this.pessoas.length==0){
-          this.navCtrl.push(NoResultsPage);   
+          this.carregamentoDePagina(NoResultsPage);
+          
         }
         else{
-          this.navCtrl.push(List, {"pessoa": this.pessoas});  
+          this.carregamentoDePagina(List, {"pessoa": this.pessoas});
+            
           
         }
       },
 
       err => {    
-
-        // console.error(JSON.stringify(err))
-        // alert("Cheguei aqui com falha");         
-        // alert(JSON.stringify(err));
-        this.navCtrl.push(NoResultsPage);
+          this.carregamentoDePagina(NoResultsPage);
         
       },
       () => {}
@@ -131,6 +141,7 @@ recebendoResultado(){
     this.cicatriz=undefined;
     this.tatuagem=undefined;     
     this.deficiente=undefined;
+    this.infoAdicionaisAparencia="";
 }
 
 
