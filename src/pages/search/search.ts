@@ -92,7 +92,7 @@ carregamentoDePagina(){ 
 //  loading.present();
   
   loading.dismiss().then(() => {
-    recebendoResultado();
+    this.recebendoResultado();
     })
   ;}
   
