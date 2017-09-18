@@ -63,7 +63,7 @@ dadosDesaparecido(){
     "tipo_fisico": this.tipoFisico,
     "cor_olhos": this.corOlhos,
     "cor_pele": this.corPele,
-    "cor_cabelo": this.corCabelo,
+    "cor_cabelos": this.corCabelo,
     "faixa_altura":this.altura
 }
   return dadosDoDesaparecido;
@@ -97,6 +97,7 @@ tratamentoCamposTexto(){
   
 montaURL(jsonDeEntrada) {
   return "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));}
+
 recebendoResultado(){    // Call API to get people searched    
   this.webapi.searchPeople(this.montaURL(this.dadosDesaparecido())).subscribe(
     data => { 
