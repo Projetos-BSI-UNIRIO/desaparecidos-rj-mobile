@@ -85,45 +85,38 @@ tratamentoCamposTexto(){
 
 }
  
-carregamentoDePagina(nomeDaPagina, dadosDaPagina = null){
+carregamentoDePagina(){  
   let loading = this.loadingCtrl.create({
-    content: 'Carregando...'
+    content: 'Carregando...'  
   });
-
-  loading.present();
-
-  loading.dismiss().then(() => {
-    this.navCtrl.push(nomeDaPagina, dadosDaPagina);   
-});
-}
-
+//  loading.present();
+  
+  loading.dismiss().then(() => {
+    recebendoResultado();
+    })
+  ;}
+  
 montaURL(jsonDeEntrada) {
-    return "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));
-}
+  return "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));}
 
 recebendoResultado(){
-    // Call API to get people searched
-    this.webapi.searchPeople(this.montaURL(this.dadosDesaparecido())).subscribe(
-      data => { this.pessoas = data.json();     
-        this.pessoas= this.pessoas.desaparecidos;
-        if(this.pessoas.length==0){
-          this.carregamentoDePagina(NoResultsPage);
-          
-        }
-        else{
-          this.carregamentoDePagina(List, {"pessoa": this.pessoas});
-            
-          
-        }
+  // Call API to get people searched    
+  this.webapi.searchPeople(this.montaURL(this.dadosDesaparecido())).subscribe(
+    data => { this.pessoas = data.json();
+             this.pessoas= this.pessoas.desaparecidos;
+             if(this.pessoas.length==0){
+               this.navCtrl.push(NoResultsPage);
+             }
+             else{
+               this.navCtrl.push(List, {"pessoa": this.pessoas});
+             }
+            },
+      err => {
+        this.navCtrl.push(NoResultsPage);
       },
-
-      err => {    
-          this.carregamentoDePagina(NoResultsPage);
-        
-      },
-      () => {}
-    );  
-  }
+    () => {}
+  );
+}
 
   ionViewWillEnter(){
     this.montaURL([]);
