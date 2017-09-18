@@ -14,12 +14,12 @@
       <ion-list-header>Dados Pessoais</ion-list-header>
       <ion-item>
         <ion-label color="primary" floating>Nome Completo</ion-label>
-        <ion-input name="nome" type="text" [(ngModel)]="nomeCompleto" (ngModelChange)="nomeCompleto" ></ion-input>
+        <ion-input name="nome" type="text" [(ngModel)]="nomeCompleto" ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label color="primary" floating>Idade Aparente</ion-label>
-        <ion-select type="text" [(ngModel)]="idade" (ngModelChange)="idade" >
+        <ion-select type="text" [(ngModel)]="idade" >
         <ion-option value="ate_18_anos">até 18 anos</ion-option>
         <ion-option value="de_19_ate_30_anos">de 19 até 30 anos</ion-option>
         <ion-option value="de_31_ate_45_anos">de 31 até 45 anos</ion-option>
@@ -31,7 +31,7 @@
 
       <ion-item>
         <ion-label color="primary" floating>Altura</ion-label>
-        <ion-select type="text" [(ngModel)]="altura" (ngModelChange)="altura" >
+        <ion-select type="text" [(ngModel)]="altura"  >
           <ion-option value="anao">Anão</ion-option>
           <ion-option value="ate_160">até 1,60</ion-option>
           <ion-option value="de_160_ate_170">de 1,60 até 1,70</ion-option>
@@ -43,7 +43,7 @@
 
       <ion-item>
         <ion-label color="primary" floating>Sexo</ion-label>
-        <ion-select type="text" [(ngModel)]="sexo" (ngModelChange)="sexo">
+        <ion-select type="text" [(ngModel)]="sexo" ">
           <ion-option value="Feminino">Feminino</ion-option>
           <ion-option value="Masculino">Masculino</ion-option>
           <ion-option value=undefined>nenhum</ion-option>
@@ -52,12 +52,12 @@
 
       <ion-item>
         <ion-label color="primary" floating>Nome da mãe</ion-label>
-        <ion-input name="mae" type="text" [(ngModel)]="mae"  (ngModelChange)="mae"></ion-input>
+        <ion-input name="mae" type="text" [(ngModel)]="mae" ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label color="primary" floating>Nome do pai</ion-label>
-        <ion-input name="pai" type="text" [(ngModel)]="pai" (ngModelChange)="pai"></ion-input>
+        <ion-input name="pai" type="text" [(ngModel)]="pai"></ion-input>
       </ion-item>
     </ion-list>
 
@@ -65,7 +65,7 @@
       <ion-list-header>Aparência</ion-list-header>
       <ion-item>
         <ion-label color="primary" floating>Cor de Pele</ion-label>
-        <ion-select type="text" [(ngModel)]="corPele" (ngModelChange)="corPele">
+        <ion-select type="text" [(ngModel)]="corPele">
           <ion-option value="Albina">Albina</ion-option>
           <ion-option value="Amarela">Amarela</ion-option>
           <ion-option value="Branca">Branca</ion-option>
@@ -78,12 +78,12 @@
 
       <ion-item>
         <ion-label color="primary" floating>Cor de Cabelo</ion-label>
-        <ion-select type="text" [(ngModel)]="corCabelo" (ngModelChange)="corCabelo">
-          <ion-option value="Aço">Aço</ion-option>
+        <ion-select type="text" [(ngModel)]="corCabelo" >
+          <ion-option value="Aco">Aço</ion-option>
           <ion-option value="Branco">Branco</ion-option>
-          <ion-option value="Castanho claro">Castanho claro</ion-option>
-          <ion-option value="Castanho escuro">Castanho escuro</ion-option>
-          <ion-option value="Com mechas ou faixas">Com mechas ou faixas</ion-option>
+          <ion-option value="Castanho_claro">Castanho claro</ion-option>
+          <ion-option value="Castanho_escuro">Castanho escuro</ion-option>
+          <ion-option value="Com_mechas_ou_faixas">Com mechas ou faixas</ion-option>
           <ion-option value="Loiro">Loiro</ion-option>
           <ion-option value="Preto">Preto</ion-option>
           <ion-option value="Ruivo">Ruivo</ion-option>
@@ -93,12 +93,12 @@
 
       <ion-item>
         <ion-label color="primary" floating>Cor dos olhos</ion-label>
-        <ion-select type="text" [(ngModel)]="corOlhos" (ngModelChange)="corOlhos">
+        <ion-select type="text" [(ngModel)]="corOlhos">
           <ion-option value="Azuis">Azuis</ion-option>
-          <ion-option value="Castanhos claros">Castanhos claros</ion-option>
-          <ion-option value="Castanhos escuros">Castanhos escuros</ion-option>
+          <ion-option value="Castanhos_claros">Castanhos claros</ion-option>
+          <ion-option value="Castanhos_escuros">Castanhos escuros</ion-option>
           <ion-option value="Cinzentos">Cinzentos</ion-option>
-          <ion-option value="Desiguais na cor">Desiguais na cor</ion-option>
+          <ion-option value="Desiguais_na_cor">Desiguais na cor</ion-option>
           <ion-option value="Pretos">Pretos</ion-option>
           <ion-option value="Verdes">Verdes</ion-option>
           <ion-option value="Violetas">Violetas</ion-option>
@@ -108,7 +108,7 @@
 
       <ion-item>
         <ion-label color="primary" floating>Tipo Físico</ion-label>
-        <ion-select type="text" [(ngModel)]="tipoFisico"(ngModelChange)="tipoFisico"  >
+        <ion-select type="text" [(ngModel)]="tipoFisico">
           <ion-option value="Magro">Magro</ion-option>
           <ion-option value="Normal">Normal</ion-option>
           <ion-option value="Gordo">Gordo</ion-option>
@@ -119,7 +119,7 @@
 
       <ion-item>
         <ion-label color="primary" floating>Informações adicionais</ion-label>
-        <ion-select multiple="true" type="text" [(ngModel)]="infoAdicionaisAparencia" (ngModelChange)="infoAdicionaisAparencia" >
+        <ion-select multiple="true" type="text" [(ngModel)]="infoAdicionaisAparencia">
           <ion-option>Tatuagem</ion-option>
           <ion-option>Cicatriz</ion-option>
           <ion-option>Deficiente</ion-option>
