@@ -13,7 +13,7 @@ import { WebApiService } from '../../providers/web-api-service';
 
 export class SearchPage {
   public nomeCompleto=""; mae=""; pai=""; idade; altura; sexo; corPele; corCabelo; corOlhos; tipoFisico; infoAdicionaisAparencia; tatuagem; cicatriz; amputado; deficiente; url; 
-  public pessoas; 
+  public pessoas; desabilitarBotaoBuscar; 
   
 constructor(public navCtrl: NavController, public navParams: NavParams, private webapi: WebApiService, public loadingCtrl: LoadingController) {
 }
@@ -84,51 +84,44 @@ tratamentoCamposTexto(){
   
 
 }
- 
-carregamentoDePagina(PaginaACarregar, dadosDaPagina = null){
-  let loading = this.loadingCtrl.create({
-    content: 'Carregando...'
+ carregamentoDePagina(nomeDaPagina, dadosDaPagina = null){
+   let loading = this.loadingCtrl.create({
+     content: 'Carregando...'
+   });
+  loading.present();
+  loading.dismiss().then(() => {
+    this.navCtrl.push(nomeDaPagina, dadosDaPagina);
   });
-
-  loading.present();
+ }
   
-  this.navCtrl.push(PaginaACarregar, dadosDaPagina)
-  .then(() => loading.dismiss())
-  .catch(function(){
-    loading.dismiss();
-    alert("Erro de conexão. Por favor, tente novamente.")
-  } );
-
-
-}
-
 montaURL(jsonDeEntrada) {
-    return "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));
-}
+  return "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));}
 
-recebendoResultado(){
-    // Call API to get people searched
-    this.webapi.searchPeople(this.montaURL(this.dadosDesaparecido())).subscribe(
-      data => { this.pessoas = data.json();     
-        this.pessoas= this.pessoas.desaparecidos;
-        if(this.pessoas.length==0){
-          this.carregamentoDePagina(NoResultsPage);
-          
-        }
-        else{      
-          this.carregamentoDePagina(List, {"pessoa": this.pessoas});
-            
-          
-        }
-      },
-
-      err => {    
-          this.carregamentoDePagina(NoResultsPage);
+recebendoResultado(){    // Call API to get people searched    
+  this.desabilitarBotaoBuscar=true;        
+  
+  this.webapi.searchPeople(this.montaURL(this.dadosDesaparecido())).subscribe(
+    data => { 
+      this.pessoas = data.json();
+      this.pessoas= this.pessoas.desaparecidos;
+      if(this.pessoas.length==0){
+        this.carregamentoDePagina(NoResultsPage);
         
+      }        
+      else{
+        this.carregamentoDePagina(List, {"pessoa": this.pessoas});
+       // this.desabilitarBotaoBuscar=true;        
+        
+      }
+    },
+      err => {
+      this.carregamentoDePagina(NoResultsPage);
+     // this.desabilitarBotaoBuscar=true;
+      
       },
-      () => {}
-    );  
-  }
+    () => {}
+  );
+}
 
   ionViewWillEnter(){
     this.montaURL([]);
@@ -147,7 +140,8 @@ recebendoResultado(){
     this.tatuagem=undefined;     
     this.deficiente=undefined;
     this.infoAdicionaisAparencia="";
-}
+    this.desabilitarBotaoBuscar=false;
+  }
 
 
 ionViewWillLeave(){   
