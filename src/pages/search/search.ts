@@ -110,13 +110,11 @@ recebendoResultado(){    // Call API to get people searched   
       }        
       else{
         this.carregamentoDePagina(List, {"pessoa": this.pessoas});
-       // this.desabilitarBotaoBuscar=true;        
         
       }
     },
       err => {
       this.carregamentoDePagina(NoResultsPage);
-     // this.desabilitarBotaoBuscar=true;
       
       },
     () => {}
