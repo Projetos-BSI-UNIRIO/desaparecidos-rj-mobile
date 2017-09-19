@@ -63,7 +63,7 @@ dadosDesaparecido(){
     "tipo_fisico": this.tipoFisico,
     "cor_olhos": this.corOlhos,
     "cor_pele": this.corPele,
-    "cor_cabelo": this.corCabelo,
+    "cor_cabelos": this.corCabelo,
     "faixa_altura":this.altura
 }
   return dadosDoDesaparecido;
@@ -85,16 +85,21 @@ tratamentoCamposTexto(){
 
 }
  
-carregamentoDePagina(nomeDaPagina, dadosDaPagina = null){
+carregamentoDePagina(PaginaACarregar, dadosDaPagina = null){
   let loading = this.loadingCtrl.create({
     content: 'Carregando...'
   });
 
   loading.present();
+  
+  this.navCtrl.push(PaginaACarregar, dadosDaPagina)
+  .then(() => loading.dismiss())
+  .catch(function(){
+    loading.dismiss();
+    alert("Erro de conexão. Por favor, tente novamente.")
+  } );
 
-  loading.dismiss().then(() => {
-    this.navCtrl.push(nomeDaPagina, dadosDaPagina);   
-});
+
 }
 
 montaURL(jsonDeEntrada) {
@@ -110,7 +115,7 @@ recebendoResultado(){
           this.carregamentoDePagina(NoResultsPage);
           
         }
-        else{
+        else{      
           this.carregamentoDePagina(List, {"pessoa": this.pessoas});
             
           
