@@ -95,7 +95,7 @@ tratamentoCamposTexto(){
  }
   
 montaURL(jsonDeEntrada) {
-  return "http://104.131.39.194:8000/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));}
+  return "http://desaparecidos-rj.guilhermecaeiro.me/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));}
 
 recebendoResultado(){    // Call API to get people searched    
   this.desabilitarBotaoBuscar=true;        

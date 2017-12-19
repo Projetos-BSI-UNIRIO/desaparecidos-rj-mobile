@@ -28,7 +28,7 @@ public pessoa;
 
 obterImagem(pessoa) {
   
-      return `http://104.131.39.194:8000${pessoa.cartazete}`;
+      return `http://desaparecidos-rj.guilhermecaeiro.me${pessoa.cartazete}`;
     }
 
 

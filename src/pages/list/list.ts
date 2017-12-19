@@ -25,7 +25,7 @@ export class List {
 
 obterImagem(pessoa) {
 
-    return `http://104.131.39.194:8000${pessoa.foto}`;
+    return `http://desaparecidos-rj.guilhermecaeiro.me${pessoa.foto}`;
   }
 
 
