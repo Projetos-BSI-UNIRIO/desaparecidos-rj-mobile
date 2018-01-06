@@ -15,7 +15,7 @@ import { NoResultsPage } from '../pages/no-results/no-results';
 import { CartazeteGeneratorPage } from '../pages/cartazete-generator/cartazete-generator';
 import { SocialSharing } from '@ionic-native/social-sharing';
 
-
+//Declaração de páginas (módulos) do aplicativo
 @NgModule({
   declarations: [
     MyApp,

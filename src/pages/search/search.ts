@@ -15,75 +15,89 @@ export class SearchPage {
   public nomeCompleto=""; mae=""; pai=""; idade; altura; sexo; corPele; corCabelo; corOlhos; tipoFisico; infoAdicionaisAparencia; tatuagem; cicatriz; amputado; deficiente; url; 
   public pessoas; desabilitarBotaoBuscar; 
   
-constructor(public navCtrl: NavController, public navParams: NavParams, private webapi: WebApiService, public loadingCtrl: LoadingController) {
-}
- 
-tratamentoInfoAdicionais(){
-  if(this.infoAdicionaisAparencia != ""){
-    for(var i=0; i<this.infoAdicionaisAparencia.length; i++){
-      
-        if(this.infoAdicionaisAparencia[i]=="Tatuagem"){
-          this.tatuagem = true;
-        }
-       
-        else if(this.infoAdicionaisAparencia[i]=="Cicatriz"){
-          this.cicatriz = true;
-        }
+  constructor(public navCtrl: NavController, public navParams: NavParams, private webapi: WebApiService, public loadingCtrl: LoadingController) {
+  }
+ /**
+  * Tratamento de informações do campo "Informações adicionais" para criação do json
+  */
+  tratamentoInfoAdicionais(){
+    if(this.infoAdicionaisAparencia != ""){
+      for(var i=0; i<this.infoAdicionaisAparencia.length; i++){
         
-        else if(this.infoAdicionaisAparencia[i]=="Deficiente"){
-          this.deficiente = true;
-        }
+          if(this.infoAdicionaisAparencia[i]=="Tatuagem"){
+            this.tatuagem = true;
+          }
         
-        else{
-          this.amputado = true;
+          else if(this.infoAdicionaisAparencia[i]=="Cicatriz"){
+            this.cicatriz = true;
+          }
+          
+          else if(this.infoAdicionaisAparencia[i]=="Deficiente"){
+            this.deficiente = true;
+          }
+          
+          else{
+            this.amputado = true;
+          }
+          
         }
-        
       }
-    }
-    else{
-      this.amputado=undefined;
-      this.cicatriz=undefined;
-      this.tatuagem=undefined;     
-      this.deficiente=undefined;
-    }
-}
-dadosDesaparecido(){
-    this.tratamentoInfoAdicionais();
-    this.tratamentoCamposTexto();
+      else{
+        this.amputado=undefined;
+        this.cicatriz=undefined;
+        this.tatuagem=undefined;     
+        this.deficiente=undefined;
+      }
+  }
 
-  var dadosDoDesaparecido ={
-    "nome": this.nomeCompleto,
-    "nome_pai": this.pai,
-    "nome_mae": this.mae,
-    "idade_aparente": this.idade,
-    "possui_cicatriz": this.cicatriz,
-    "possui_tatuagem": this.tatuagem,
-    "possui_deficiencia": this.deficiente,
-    "sofreu_amputacao": this. amputado,
-    "tipo_fisico": this.tipoFisico,
-    "cor_olhos": this.corOlhos,
-    "cor_pele": this.corPele,
-    "cor_cabelos": this.corCabelo,
-    "faixa_altura":this.altura
-}
-  return dadosDoDesaparecido;
-}
+  /**
+   * Criação do json com os dados colocados pelo usuário
+   */
+  dadosDesaparecido(){
+      this.tratamentoInfoAdicionais();
+      this.tratamentoCamposTexto();
 
-tratamentoCamposTexto(){
-  if(this.nomeCompleto!=""){
-    this.nomeCompleto.trim()
+    var dadosDoDesaparecido ={
+      "nome": this.nomeCompleto,
+      "nome_pai": this.pai,
+      "nome_mae": this.mae,
+      "idade_aparente": this.idade,
+      "possui_cicatriz": this.cicatriz,
+      "possui_tatuagem": this.tatuagem,
+      "possui_deficiencia": this.deficiente,
+      "sofreu_amputacao": this. amputado,
+      "tipo_fisico": this.tipoFisico,
+      "cor_olhos": this.corOlhos,
+      "cor_pele": this.corPele,
+      "cor_cabelos": this.corCabelo,
+      "faixa_altura":this.altura,
+      "sexo": this.sexo
   }
-    
-  if(this.mae!=""){
-    this.mae.trim();
+    return dadosDoDesaparecido;
   }
- 
-  if(this.pai!=""){
-    this.pai.trim();
-  }
+  /**
+   * Tratamento de campos escritos 
+   */
+  tratamentoCamposTexto(){
+    if(this.nomeCompleto!=""){
+      this.nomeCompleto.trim()
+    }
+      
+    if(this.mae!=""){
+      this.mae.trim();
+    }
   
+    if(this.pai!=""){
+      this.pai.trim();
+    }
+    
 
-}
+  }
+/**
+ * Método que fará a chamada para outra página
+ * @param nomeDaPagina : nome da página que será carregada em seguida
+ * @param dadosDaPagina : dados da pessoa que devem ser passados para a página seguinte (default = null)
+ */
  carregamentoDePagina(nomeDaPagina, dadosDaPagina = null){
    let loading = this.loadingCtrl.create({
      content: 'Carregando...'
@@ -93,34 +107,39 @@ tratamentoCamposTexto(){
     this.navCtrl.push(nomeDaPagina, dadosDaPagina);
   });
  }
-  
-montaURL(jsonDeEntrada) {
+ /**
+  * Método que cria a URL que será enviada ao servidor com os dados de busca
+  * @param jsonDeEntrada : Json com os dados de busca inseridos pelo usuário
+  */ 
+  montaURL(jsonDeEntrada) {
   return "http://desaparecidos-rj.guilhermecaeiro.me/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));}
 
-recebendoResultado(){    // Call API to get people searched    
-  this.desabilitarBotaoBuscar=true;        
-  
-  this.webapi.searchPeople(this.montaURL(this.dadosDesaparecido())).subscribe(
-    data => { 
-      this.pessoas = data.json();
-      this.pessoas= this.pessoas.desaparecidos;
-      if(this.pessoas.length==0){
-        this.carregamentoDePagina(NoResultsPage);
-        
-      }        
-      else{
-        this.carregamentoDePagina(List, {"pessoa": this.pessoas});
-        
-      }
-    },
-      err => {
-      this.carregamentoDePagina(NoResultsPage);
-      
-      },
-    () => {}
-  );
-}
+    /**
+     * Método que recebe os resultados do servidor
+     */
 
+  recebendoResultado(){    // Call API to get people searched    
+    this.desabilitarBotaoBuscar=true;        
+    
+    this.webapi.searchPeople(this.montaURL(this.dadosDesaparecido())).subscribe( //monta URL com os dados do Json
+      data => { //se não houver erro, entrará nesse bloco de comando
+        this.pessoas = data.json();
+        this.pessoas= this.pessoas.desaparecidos;
+        if(this.pessoas.length==0){
+          this.carregamentoDePagina(NoResultsPage);        
+        }        
+        else{
+          this.carregamentoDePagina(List, {"pessoa": this.pessoas});          
+        }
+      }, err => { //em caso de erro, entrará nesse bloco de comando
+        this.carregamentoDePagina(NoResultsPage);        
+      }, () => {}
+    );
+  }
+
+  /**
+   * Atribui valores nulos a todas as variaveis ao entrar na página
+   */
   ionViewWillEnter(){
     this.montaURL([]);
     this.nomeCompleto ="";
@@ -141,22 +160,24 @@ recebendoResultado(){    // Call API to get people searched   
     this.desabilitarBotaoBuscar=false;
   }
 
-
-ionViewWillLeave(){   
-  this.dadosDesaparecido();
-  
-  this.infoAdicionaisAparencia=[];
-  this.nomeCompleto ="";
-  this.pai ="";
-  this.mae ="";
-  this.idade = null;
-  this.tipoFisico = null;
-  this.corOlhos =null;
-  this.corPele =null,
-  this.corCabelo =null;
-  this.altura =null;
-  this.sexo=null;
-}
+  /**
+   * Limpa os dados do formulário (visualmente) ao sair da página de busca
+   */
+  ionViewWillLeave(){   
+    this.dadosDesaparecido();
+    
+    this.infoAdicionaisAparencia=[];
+    this.nomeCompleto ="";
+    this.pai ="";
+    this.mae ="";
+    this.idade = null;
+    this.tipoFisico = null;
+    this.corOlhos =null;
+    this.corPele =null,
+    this.corCabelo =null;
+    this.altura =null;
+    this.sexo=null;
+  }
 
 
 

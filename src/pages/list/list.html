@@ -15,7 +15,9 @@
 
 
 <ion-content padding >
-  <ion-card *ngFor="let pessoa of pessoas" >
+  <!-- Cria um "cartão" de exibição para cada resultado da busca -->
+  <!--  ngFor é o laço que percorre o resultado-->
+  <ion-card *ngFor="let pessoa of pessoas" > 
     <ion-card-content style="text-align: center; background: #F2F2F2;">
       <ion-card-title >  
           {{ pessoa.nome }}

@@ -13,14 +13,14 @@ import { Contact } from '../pages/contact/contact';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = HomePage; //Página de abertura do aplicativo
 
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
+    // páginas usadas no menu
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Buscar', component: SearchPage },

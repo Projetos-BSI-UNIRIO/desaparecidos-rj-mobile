@@ -11,24 +11,30 @@ import { ResultsPage } from '../results/results';
 })
 export class List {
 
- public paramsUrl;
  public pessoas;
 
   constructor(public navCtrl: NavController, private navParams: NavParams) {
-    this.pessoas = navParams.get('pessoa');
+    this.pessoas = navParams.get('pessoa'); //pega informações passadas pela pagina anterior e coloca na variavel "pessoa"
 
   }
 
   ionViewDidLoad() {
     console.log('Lista teste');
   }
+/**
+ * Método que retorna a imagem da pessoa no servidor
+ * @param pessoa : informações referente a pessoa que está sendo exibida na tela
+ */
 
 obterImagem(pessoa) {
 
     return `http://desaparecidos-rj.guilhermecaeiro.me${pessoa.foto}`;
   }
 
-
+/**
+ * Vai para a próxima página (ResultsPage) e passa 
+ * @param pessoa : informações referente a pessoa que está sendo exibida na tela
+ */
 irParaResultadoDaBusca(pessoa){
     this.navCtrl.push(ResultsPage, {pessoa:pessoa});
 

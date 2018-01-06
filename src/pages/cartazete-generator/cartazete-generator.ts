@@ -25,13 +25,22 @@ public pessoa;
     console.log('ionViewDidLoad CartazeteGeneratorPage');
   }
 
-
+/**
+ * Retorna o cartazete do servidor
+ * 
+*/
 obterImagem(pessoa) {
   
       return `http://desaparecidos-rj.guilhermecaeiro.me${pessoa.cartazete}`;
     }
 
-
+/**
+ * Métodos de compartilhamento referente a cada rede social
+ * @whatsapp
+ * @twitter
+ * @facebook
+ * 
+*/
     whatsappShare(){
       this.socialSharing.shareViaWhatsApp("Ajude-me a encontrar: " + this.pessoa.nome, this.obterImagem(this.pessoa),  null /* url */)
         .then(()=>{ /*colocar alerta aqui*/ },
