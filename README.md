@@ -1,4 +1,4 @@
-# Aplicação Desaparecidos-RJ (Web)
+# Aplicativo Desaparecidos-RJ (Mobile)
 
 ## Introdução ##
 
