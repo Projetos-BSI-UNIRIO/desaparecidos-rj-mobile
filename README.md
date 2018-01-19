@@ -26,30 +26,30 @@ O aplicativo possui versões para duas plataformas: Android e iOS. O passo-a-pas
 
 ### Android ###
 
-1. Configurar o Android
+#### Configurar o Android ####
 
 Para começar, é preciso liberar a instalação de aplicativos de "fontes desconhecidas" no Android. Para isso, em seu dispositivo Android, abra "Configurar" > "Segurança" e marque a opção "Fontes desconhecidas".
 Essa opção está disponível no Android 4.0 ou superior. Se você tem uma versão anterior do Android, você deve acessar "Configurações > Aplicativos", selecionar a opção "Fontes Desconhecidas" e tocar em OK.
 
-2. Instalar o Aplicativo
+#### Instalar o Aplicativo ####
 
 Opção 1- Baixando o aplicativo (arquivo ".apk") direto no smartphone
 
-1. Através do navegador Google Chrome, em seu smartphone, faça o download do "arquivo apk" disponível em:
+(1) Através do navegador Google Chrome, em seu smartphone, faça o download do "arquivo apk" disponível em:
 https://github.com/Projetos-BSI-UNIRIO/desaparecidos-rj-mobile/releases
 
-2. Em alguns casos, o Chrome (ou o e-mail) pode exibir uma mensagem informando que o arquivo pode danificar o seu dispositivo e perguntando se você quer mantê-lo mesmo assim. Toque em "OK" para autorizar o download.
+(2) Em alguns casos, o Chrome (ou o e-mail) pode exibir uma mensagem informando que o arquivo pode danificar o seu dispositivo e perguntando se você quer mantê-lo mesmo assim. Toque em "OK" para autorizar o download.
 
-3. Uma vez terminado o download, abra a área de notificação do seu smartphone e toque na notificação de "download concluído" para iniciar a instalação do aplicativo.
+(3) Uma vez terminado o download, abra a área de notificação do seu smartphone e toque na notificação de "download concluído" para iniciar a instalação do aplicativo.
 Nota: Se você não conseguir iniciar a instalação do aplicativo através da notificação, você pode encontrar o arquivo APK baixado abrindo o aplicativo "Downloads" do seu smartphone e executá-lo a partir dessa pasta. Outra opção é acessar diretamente a pasta “Downloads” do dispositivo utilizando qualquer aplicativo de gerenciamento de pastas e arquivos que você possua instalado e executar o arquivo “.apk” diretamente.
 
-4. Por fim, será exibida uma tela com todas as permissões que o aplicativo precisa. Role-a para baixo para ver todas e toque em "Instalar" para iniciar a instalação do aplicativo.
+(4) Por fim, será exibida uma tela com todas as permissões que o aplicativo precisa. Role-a para baixo para ver todas e toque em "Instalar" para iniciar a instalação do aplicativo.
 
 Opção 2. Transferir o arquivo APK para o Android
 
-1. Baixe o aplicativo no computador (o link se encontra na “opção” anterior), conecte o smartphone ao computador via cabo USB e copie o arquivo APK para seu dispositivo Android (por exemplo para a pasta "Download" do seu smartphone ou tablet).
+(1) Baixe o aplicativo no computador (o link se encontra na “opção” anterior), conecte o smartphone ao computador via cabo USB e copie o arquivo APK para seu dispositivo Android (por exemplo para a pasta "Download" do seu smartphone ou tablet).
 
-2. Abra o aplicativo gerenciador de arquivos e pastas que possuir instalado em seu smartphone, navegue até a pasta para a qual você copiou o arquivo APK e toque nele. Em seguida, verifique as permissões e toque em "Instalar" para iniciar a instalação.
+(2) Abra o aplicativo gerenciador de arquivos e pastas que possuir instalado em seu smartphone, navegue até a pasta para a qual você copiou o arquivo APK e toque nele. Em seguida, verifique as permissões e toque em "Instalar" para iniciar a instalação.
 
 
 ### iOS ###
