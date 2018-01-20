@@ -61,4 +61,4 @@ Pendente.
 Software em desenvolvimento por equipe voluntária da Universidade Federal do Estado do Rio de Janeiro (UNIRIO), sob orientação das professoras Geiza M. H. Silva e Renata M. Araújo. 
 
 Desenvolvido utilizando:
-- Ionic 2 (?)
+- Ionic 2
