@@ -98,13 +98,13 @@ export class SearchPage {
  * @param nomeDaPagina : nome da página que será carregada em seguida
  * @param dadosDaPagina : dados da pessoa que devem ser passados para a página seguinte (default = null)
  */
- carregamentoDePagina(nomeDaPagina, dadosDaPagina = null){
+ carregamentoDePagina(){
    let loading = this.loadingCtrl.create({
      content: 'Carregando...'
    });
   loading.present();
   loading.dismiss().then(() => {
-    this.navCtrl.push(nomeDaPagina, dadosDaPagina);
+    this.recebendoResultado();
   });
  }
  /**
@@ -126,13 +126,13 @@ export class SearchPage {
         this.pessoas = data.json();
         this.pessoas= this.pessoas.desaparecidos;
         if(this.pessoas.length==0){
-          this.carregamentoDePagina(NoResultsPage);        
+          this.navCtrl.push(NoResultsPage);        
         }        
         else{
-          this.carregamentoDePagina(List, {"pessoa": this.pessoas});          
+          this.navCtrl.push(List, {"pessoa": this.pessoas});          
         }
       }, err => { //em caso de erro, entrará nesse bloco de comando
-        this.carregamentoDePagina(NoResultsPage);        
+        this.navCtrl.push(NoResultsPage);        
       }, () => {}
     );
   }

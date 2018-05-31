@@ -7,6 +7,14 @@
   background-size: 80%;
   background-position-x: 50%;
   background-position-y: 50%;
+  
+  #icones li
+  {
+    display: inline;
+    list-style-type: none;
+    padding-right: 5%;
+  }
+
 
   .logo{
     position: fixed;
