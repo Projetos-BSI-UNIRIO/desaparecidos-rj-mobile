@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { CartazeteGeneratorPage } from '../cartazete-generator/cartazete-generator';
-
+import { TestePage } from '../teste/teste';
+import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
+import { Geolocation } from '@ionic-native/geolocation';
 /**
  * Generated class for the ResultsPage page.
  *
@@ -12,20 +14,32 @@ import { CartazeteGeneratorPage } from '../cartazete-generator/cartazete-generat
   selector: 'page-results',
   templateUrl: 'results.html',
 })
+
 export class ResultsPage {
 
   public pessoa; tatuagem; deficiencia; amputacao; cicatriz;
+  latitude:any;
+  longitude:any;
+  localizacao:any;
+  countryCode:any;
+  countryName:any;
+  postalCode:any;
+  administrativeArea:any;
+  subAdministrativeArea:any;
+  locality:any;
+  sublocality:any;
+  thoroughfare:any;
+  subThoroughfare:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(public navCtrl: NavController, private geolocation : Geolocation, private nativeGeocoder: NativeGeocoder, public navParams: NavParams) {
     this.pessoa = this.navParams.get("pessoa");
     this.tratamentoDeAltura();
     this.tratamentoDeIdade();
     this.tratamentoInformacoesAdicionais();
+    this.getEndereco();
  }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ResultsPage');
-  }
 
   obterImagem(){
       return `http://desaparecidos-rj.guilhermecaeiro.me${this.pessoa.foto}`;
@@ -114,5 +128,38 @@ export class ResultsPage {
 
   }
 
+  getEndereco(){
+    
+    this.geolocation.getCurrentPosition().then((resp) => {
+    this.latitude= resp.coords.latitude;
+    this.longitude=resp.coords.longitude;
+      this.nativeGeocoder.reverseGeocode( resp.coords.latitude, resp.coords.longitude)
+          .then((result: NativeGeocoderReverseResult) => {
+            this.localizacao = result[0];
+            this.tratandoEndereco(this.localizacao);
+            
+          })
+          .catch((error: any) => alert(error));
+
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
+
+  
+  }
+  
+  tratandoEndereco(endereco){
+    this.countryCode=endereco.countryCode;
+    this.countryName=endereco.countryName;
+    this.postalCode=endereco.postalCode;
+    this.administrativeArea=endereco.administrativeArea;
+    this.subAdministrativeArea=endereco.subAdministrativeArea;
+    this.locality=endereco.locality;
+    this.sublocality=endereco.subLocality;
+    this.thoroughfare=endereco.thoroughfare;
+    this.subThoroughfare=endereco.subThoroughfare;
+  
+  }
+  
 
 }

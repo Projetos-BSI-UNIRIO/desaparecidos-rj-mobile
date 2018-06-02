@@ -3,7 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
-import { SearchPage } from '../pages/search/search';
+import { SearchOptionPage } from '../pages/search-option/search-option';
 import { Contact } from '../pages/contact/contact';
 
 
@@ -23,7 +23,7 @@ export class MyApp {
     // páginas usadas no menu
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Buscar', component: SearchPage },
+      { title: 'Buscar', component: SearchOptionPage },
       { title: 'Sobre nós', component:  Contact}
 
     ];

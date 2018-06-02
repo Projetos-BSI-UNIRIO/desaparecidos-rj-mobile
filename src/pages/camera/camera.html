@@ -1,0 +1,17 @@
+<ion-header>
+        
+          <ion-navbar>
+            <ion-title>Foto</ion-title>
+          </ion-navbar>
+        
+        </ion-header>
+<ion-content padding  >    
+           
+    <img src={{this.imagem}} style="max-height: 90%; max-width:90%;">
+        
+    <ion-fab right bottom>
+        <button ion-fab style="background-color:#f4d142;" (click)="tirarFoto()"> 
+            <ion-icon name="md-camera"> </ion-icon>
+        </button>
+    </ion-fab>
+</ion-content>

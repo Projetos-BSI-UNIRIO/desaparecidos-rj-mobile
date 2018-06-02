@@ -36,7 +36,17 @@
       </ul>  
     </ion-card-content>
 
-
   </ion-card>
-  <button ion-button  (click)="irParaGeradorDeCartazete(pessoa)"> Ver Cartazete </button><br><br>
+  <ul class="icones">
+      <li>
+          <a href="mailto:servicodescobertadeparadeiros@pcivil.rj.gov.br?subject=[Aplicativo]{{pessoa.nome}} encontrado(a)!&body=Informo que {{pessoa.nome}} foi encontrado(a) perto da {{this.thoroughfare}}, {{this.subThoroughfare}} - {{this.sublocality}}, {{this.administrativeArea}}"> <img src="assets/img/placeholder.png"> </a>
+          <br>
+          <span style="font-weight: bold; font-size: 11px;">Encontrei</span>
+      </li>
+      <li>
+          <img src="assets/img/user.png" (click)="irParaGeradorDeCartazete(pessoa)"> 
+          <br>
+          <span style="font-weight: bold; font-size: 11px;">Ver cartazete</span>
+      </li>
+  </ul>
 </ion-content>
