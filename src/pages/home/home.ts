@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { SearchPage } from '../search/search';
+import { SearchOptionPage } from '../search-option/search-option';
 
 
 /**
@@ -13,15 +13,16 @@ import { SearchPage } from '../search/search';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
+
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
 
   }
- ionViewDidLoad() {
-    console.log('ionViewDidLoad Contact');
-  }
+
+
 irParaPaginaDeBusca(){
-  this.navCtrl.push(SearchPage);
+  this.navCtrl.push(SearchOptionPage);
   }
 }

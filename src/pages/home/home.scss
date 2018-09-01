@@ -1,13 +1,13 @@
 page-home{
-  background: url('../assets/img/logo-policia-civil.png');
-  background-color: white;
-  background-repeat: no-repeat;
-  background-size: 80%;
-  background-position-x: 50%;
-  background-position-y: 50%;
-
-  .logo{
-    position: fixed;
-    z-index: -1;
+ 
+  #logo{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+  
+    
+  }
+  .titulo{
+    text-align: center;
   }
 }

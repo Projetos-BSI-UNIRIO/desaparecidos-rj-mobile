@@ -1,3 +1,42 @@
 page-results {
+    
 
 }
+.icones{
+    // display:inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.icones li{
+    display:block;
+    float: left;
+    padding-left: 8%;
+    margin-left:12%; 
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+h3, h4{
+    text-align: center;
+    font-variant: small-caps;
+  }
+
+.legenda-icones{
+    margin-left: -15%;
+    margin-top: 8%;
+}
+table{   
+    width:100%;
+}
+
+.primeira-coluna{
+    text-align:right;
+}
+
+.segunda-coluna{
+    text-align:left;
+    padding-left: 3%;
+    
+}
+

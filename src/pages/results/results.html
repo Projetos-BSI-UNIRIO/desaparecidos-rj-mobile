@@ -13,30 +13,86 @@
 </ion-header>
 
 
-<ion-content padding style="text-align:center;" >
+<ion-content padding>
   <img src="{{ obterImagem(pessoa) }}" style="max-height: 425px;max-width: 325px;display: block;margin: auto;" /><br>
+  <h3>{{pessoa.nome}}, {{pessoa.idade_aparente}}, {{pessoa.sexo}}</h3>
+  <h4> Informações pessoais </h4>
+ 
+  <table>
+    <tr>
+      <td class="primeira-coluna"><h6>Nome da mãe: </h6></td>
+      <td class="segunda-coluna"><h6>{{ mae }}</h6></td>
+    </tr>
+    <tr>
+      <td class="primeira-coluna"><h6>Nome da pai: </h6></td>
+      <td class="segunda-coluna"><h6>{{ pai }}</h6></td>
+    </tr>
+</table>
+  <h4> Características físicas </h4>
+  
+  <table>
+    <tr>
+      <td class="primeira-coluna"><h6>Altura: </h6></td>
+      <td class="segunda-coluna"><h6>{{ pessoa.faixa_altura }}</h6></td>
+  
+    </tr>
+    <tr>
+      <td class="primeira-coluna"><h6>Tipo físico:</h6></td>
+      <td class="segunda-coluna"><h6>{{ pessoa.tipo_fisico }}</h6></td>
+      
+    </tr>
+    <tr>
+      <td class="primeira-coluna"><h6>Cor dos olhos: </h6></td>
+      <td class="segunda-coluna"><h6> {{ pessoa.cor_olhos }}</h6></td>
+    
+    </tr>
+    <tr>
+      <td class="primeira-coluna"><h6>Cor do cabelo:</h6></td>
+      <td class="segunda-coluna"><h6>{{ cabelo }}</h6></td>
+      
+    </tr>
+    <tr>
+      <td class="primeira-coluna"><h6>Cor da pele:</h6></td>
+      <td class="segunda-coluna"><h6>{{ pessoa.cor_pele }}</h6></td>
+      
+    </tr>
 
-  <ion-card>
-    <ion-card-content style="background: #F2F2F2; text-align: left;">
-      <ul>
-          <li>Nome: {{ pessoa.nome }}</li>
-          <li>Idade: {{ pessoa.idade_aparente }}</li>
-          <li>Altura: {{ pessoa.faixa_altura }}</li>
-          <li>Sexo: {{ pessoa.sexo }}</li>
-          <li>Tipo físico: {{ pessoa.tipo_fisico }}</li>
-          <li>Cor dos olhos: {{ pessoa.cor_olhos }}</li>
-          <li>Cor do cabelo: {{ pessoa.cor_cabelo }}</li>
-          <li>Cor da pele: {{ pessoa.cor_pele }}</li>
-          <li>Tatuagem: {{ tatuagem }}</li>
-          <li>Deficiência: {{ deficiencia }}</li>
-          <li>Amputação: {{ amputacao }}</li>
-          <li>Cicatriz: {{ cicatriz }}</li>
-          <li>Nome do Pai: {{ pessoa.nome_mae }}</li>
-          <li>Nome da Mãe: {{ pessoa.nome_pai }}</li>
-      </ul>  
-    </ion-card-content>
+    <tr>
+      <td class="primeira-coluna"><h6>Tatuagem:</h6></td>
+      <td class="segunda-coluna"><h6>{{ tatuagem }}</h6></td>
+      
+    </tr>
 
+    <tr>
+      <td class="primeira-coluna"><h6>Deficiencia:</h6></td>
+      <td class="segunda-coluna"><h6>{{ deficiencia}}</h6></td>
+      
+    </tr>
 
-  </ion-card>
-  <button ion-button  (click)="irParaGeradorDeCartazete(pessoa)"> Ver Cartazete </button><br><br>
+    <tr>
+      <td class="primeira-coluna"><h6>Amputacao:</h6></td>
+      <td class="segunda-coluna"><h6>{{ amputacao }}</h6></td>
+      
+    </tr>
+    <tr>
+      <td class="primeira-coluna"><h6>Cicatriz:</h6></td>
+      <td class="segunda-coluna"><h6>{{ cicatriz }}</h6></td>
+      
+    </tr>
+  </table>
+
+   
+
+  <ul class="icones">
+      <li>
+          <a href="mailto:servicodescobertadeparadeiros@pcivil.rj.gov.br?subject=[Aplicativo] {{pessoa.nome}} encontrado(a)!&body=Informo que {{pessoa.nome}} foi encontrado(a) perto da {{this.thoroughfare}}, {{this.subThoroughfare}} - {{this.sublocality}}, {{this.administrativeArea}}."> <img src="assets/img/placeholder(1).png"> </a>
+          <br>
+          <h5 class="legenda-icones">Encontrei</h5>
+      </li>
+      <li>
+          <img src="assets/img/user (2).png" (click)="irParaGeradorDeCartazete(pessoa)"> 
+          <br>
+          <h5 class="legenda-icones">Ver cartazete</h5>
+      </li>
+  </ul>
 </ion-content>
