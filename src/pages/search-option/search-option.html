@@ -1,0 +1,31 @@
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Busca</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content  >
+  <ion-list id="lista">
+
+    <ion-item (click)="irParaBuscador()" >
+      <img src="assets/img/musica-searcher.png" class="icone">
+      <span class="legenda">Formulário</span>
+    </ion-item>
+    
+    <!-- <ion-item (click)="irParaCamera()" >
+      <img src="assets/img/photo-camera.png" class="icone">
+      <span  class="legenda">Foto</span>
+    </ion-item>
+
+    <ion-item (click)="irParaCamera()" >
+        <img src="assets/img/qr-code.png" class="icone">
+        <span  class="legenda">QR Code</span>
+    </ion-item> -->
+
+  </ion-list>
+
+</ion-content>

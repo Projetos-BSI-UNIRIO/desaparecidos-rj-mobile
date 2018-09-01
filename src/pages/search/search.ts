@@ -94,9 +94,7 @@ export class SearchPage {
 
   }
 /**
- * Método que fará a chamada para outra página
- * @param nomeDaPagina : nome da página que será carregada em seguida
- * @param dadosDaPagina : dados da pessoa que devem ser passados para a página seguinte (default = null)
+ * Método de carregamento de página
  */
  carregamentoDePagina(){
    let loading = this.loadingCtrl.create({
@@ -108,7 +106,7 @@ export class SearchPage {
   });
  }
  /**
-  * Método que cria a URL que será enviada ao servidor com os dados de busca
+  * Método que cria a URL que será enviada ao servidor com os dados de busca e  que fará a chamada para outra página
   * @param jsonDeEntrada : Json com os dados de busca inseridos pelo usuário
   */ 
   montaURL(jsonDeEntrada) {
