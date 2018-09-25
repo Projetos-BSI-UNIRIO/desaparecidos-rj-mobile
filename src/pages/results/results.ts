@@ -16,7 +16,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 export class ResultsPage {
 
-  public pessoa; tatuagem; deficiencia; amputacao; cicatriz; cabelo; mae; pai;  
+  public pessoa; tatuagem; deficiencia; amputacao; cicatriz; cabelo; mae; pai; olhos;
   latitude: any;
   longitude:any;
   localizacao:any;
@@ -37,14 +37,15 @@ export class ResultsPage {
     this.tratamentoDeIdade();
     this.tratamentoInformacoesAdicionais();
     this.getEndereco();
-    this. tratamentoDeCabelo();
-    this.tratamentoPais();
-    
+    this.tratamentoDeCabelo();
+    this.tratamentoMae();
+    this.tratamentoPai();
+    this.tratamentoDeOlhos();
  }
 
 
   obterImagem(){
-      return `http://desaparecidos-rj.guilhermecaeiro.me${this.pessoa.foto}`;
+      return `https://desaparecidos-rj.herokuapp.com${this.pessoa.foto}`;
     }
  
     
@@ -100,19 +101,60 @@ export class ResultsPage {
       this.cabelo="ruivo";
     }
     else{
-      this.pessoa.cor_cabelos ="não informado";
+      this.cabelo ="não informado";
     }
   }
+
+
+
+  tratamentoDeOlhos(){
+    if(this.pessoa.cor_olhos =="Azuis"){
+      this.olhos ="azuis";
+    }
+    else if(this.pessoa.cor_olhos =="castanhos_claros"){
+      this.olhos ="castanhos claros";
+    }
+    else if(this.pessoa.cor_olhos =="castanhos_escuros"){
+      this.olhos ="castanhos escuros";
+    }
+    else if(this.pessoa.cor_olhos =="cinzentos"){
+      this.olhos="cinzentos";
+    }
+    else if(this.pessoa.cor_olhos =="desiguais_na_cor"){
+      this.olhos="desiguais na cor";
+    }
+    else if(this.pessoa.cor_olhos =="pretos"){
+      this.olhos="pretos";
+    }
+    else if(this.pessoa.cor_olhos =="verdes"){
+      this.olhos="verdes";
+    }
+    else if(this.pessoa.cor_olhos =="violetas"){
+      this.olhos="violetas";
+    }
+    else{
+      this.olhos ="não informado";
+    }
+  }
+
 
   /**
    * Tratamento de exibição de informações referentes à cor de cabelo.
    */
-  tratamentoPais(){
-    if(this.pessoa.mae ==undefined){
-      this.mae ="Não informado";
+  tratamentoMae(){
+    if(this.pessoa.nome_mae !=undefined){
+      this.mae= this.pessoa.nome_mae;
     }
-    if(this.pessoa.pai ==undefined){
-      this.pai ="Não informado";
+    else{
+      this.mae ="não informado";
+    }
+  }
+  tratamentoPai(){
+    if(this.pessoa.nome_pai !=undefined){
+      this.pai =this.pessoa.nome_pai;
+    }
+    else{
+      this.pai ="não informado";
     }
 
     

@@ -31,7 +31,7 @@ public pessoa;
 */
 obterImagem(pessoa) {
   
-      return `http://desaparecidos-rj.guilhermecaeiro.me${pessoa.cartazete}`;
+      return `https://desaparecidos-rj.herokuapp.com${pessoa.cartazete}`;
     }
 
 /**

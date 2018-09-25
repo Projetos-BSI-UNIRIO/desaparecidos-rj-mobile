@@ -110,7 +110,7 @@ export class SearchPage {
   * @param jsonDeEntrada : Json com os dados de busca inseridos pelo usuário
   */ 
   montaURL(jsonDeEntrada) {
-  return "http://desaparecidos-rj.guilhermecaeiro.me/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));}
+  return "https://desaparecidos-rj.herokuapp.com/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));}
 
     /**
      * Método que recebe os resultados do servidor

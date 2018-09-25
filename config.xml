@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ionicframework.projetodesaparecidos220816" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Desaparecidos RJ</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <name>Desaparecidos-RJ</name>
+    <description>Ajude-nos a encontrar pessoas desaparecidas por todo o Estado do Rio de Janeiro</description>
+    <author href="ciberdem.uniriotec.br/">Ciberdem</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -66,4 +66,5 @@
     <plugin name="cordova-plugin-nativegeocoder" spec="^3.1.1" />
     <allow-navigation href="http://192.168.0.10:8101" />
     <engine name="android" spec="6.2.3" />
+    <plugin name="org.apache.cordova.plugin.cache" spec="https://github.com/andxyz/cordova-plugin-cache.git" />
 </widget>
