@@ -31,7 +31,7 @@ public pessoa;
 */
 obterImagem(pessoa) {
   
-      return `https://desaparecidos-rj.herokuapp.com${pessoa.cartazete}`;
+      return `http://35.199.78.162${pessoa.cartazete}`;
     }
 
 /**

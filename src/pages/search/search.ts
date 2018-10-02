@@ -110,7 +110,7 @@ export class SearchPage {
   * @param jsonDeEntrada : Json com os dados de busca inseridos pelo usuário
   */ 
   montaURL(jsonDeEntrada) {
-  return "https://desaparecidos-rj.herokuapp.com/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));}
+  return "http://35.199.78.162/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));}
 
     /**
      * Método que recebe os resultados do servidor
@@ -131,6 +131,7 @@ export class SearchPage {
         }
       }, err => { //em caso de erro, entrará nesse bloco de comando
         this.navCtrl.push(NoResultsPage);        
+        // alert(err);
       }, () => {}
     );
   }

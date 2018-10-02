@@ -45,7 +45,7 @@ export class ResultsPage {
 
 
   obterImagem(){
-      return `https://desaparecidos-rj.herokuapp.com${this.pessoa.foto}`;
+      return `http://35.199.78.162${this.pessoa.foto}`;
     }
  
     
@@ -224,7 +224,7 @@ export class ResultsPage {
     this.latitude= resp.coords.latitude;
     this.longitude=resp.coords.longitude;
       this.nativeGeocoder.reverseGeocode( resp.coords.latitude, resp.coords.longitude)
-          .then((result: NativeGeocoderReverseResult) => {
+        .then((result: NativeGeocoderReverseResult) => {
             this.localizacao = result[0];
             this.tratandoEndereco(this.localizacao);
             

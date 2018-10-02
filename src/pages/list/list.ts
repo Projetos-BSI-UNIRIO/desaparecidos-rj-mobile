@@ -28,7 +28,7 @@ export class List {
 
 obterImagem(pessoa) {
 
-    return `https://desaparecidos-rj.herokuapp.com${pessoa.foto}`;
+    return `http://35.199.78.162${pessoa.foto}`;
   }
 
 /**
