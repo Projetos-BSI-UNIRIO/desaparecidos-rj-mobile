@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Platform } from 'ionic-angular';
 import { SocialSharing } from '@ionic-native/social-sharing';
 
 /**
@@ -15,9 +15,12 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 })
 export class CartazeteGeneratorPage {
 public pessoa;
+public platform;
+public cartazeteUrl;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private socialSharing: SocialSharing) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private socialSharing: SocialSharing, platform: Platform) {
     this.pessoa = this.navParams.get("pessoa");
+    this.platform = platform;
     
   }
 
@@ -30,8 +33,8 @@ public pessoa;
  * 
 */
 obterImagem(pessoa) {
-  
-      return `http://35.199.78.162${pessoa.cartazete}`;
+      this.cartazeteUrl=`http://35.199.78.162${pessoa.cartazete}`;
+      return this.cartazeteUrl;
     }
 
 /**
@@ -41,22 +44,32 @@ obterImagem(pessoa) {
  * @facebook
  * 
 */
-    whatsappShare(){
-      this.socialSharing.shareViaWhatsApp("Ajude-me a encontrar: " + this.pessoa.nome, this.obterImagem(this.pessoa),  null /* url */)
-        .then(()=>{ /*colocar alerta aqui*/ },
-        ()=>{/*colocar alerta aqui*/})
-    }
-   
-    twitterShare(){
-      this.socialSharing.shareViaTwitter("Ajude-me a encontrar: " + this.pessoa.nome,this.obterImagem(this.pessoa),null)
-      .then(()=>{ /*colocar alerta aqui*/ },
-      ()=>{/*colocar alerta aqui*/})
-    }
-   
-    facebookShare(){
-      this.socialSharing.shareViaFacebook("Ajude-me a encontrar: " + this.pessoa.nome,this.obterImagem(this.pessoa), null)
-      .then(()=>{ /*colocar alerta aqui*/ },
-      ()=>{/*colocar alerta aqui*/})
-    }
 
+  share() {
+    this.platform.ready().then(() => {
+      if((<any>window).plugins.socialsharing) {  
+          (<any>window).plugins.socialsharing.share("Compartilhe o cartaz com seus conhecidos!", null, this.cartazeteUrl, null);
+      }
+  });
+
+
+    // whatsappShare(){
+    //   this.socialSharing.shareViaWhatsApp("Ajude-me a encontrar: " + this.pessoa.nome, this.obterImagem(this.pessoa),  null /* url */)
+    //     .then(()=>{ /*colocar alerta aqui*/ },
+    //     ()=>{/*colocar alerta aqui*/})
+    // }
+   
+    // twitterShare(){
+    //   this.socialSharing.shareViaTwitter("Ajude-me a encontrar: " + this.pessoa.nome,this.obterImagem(this.pessoa),null)
+    //   .then(()=>{ /*colocar alerta aqui*/ },
+    //   ()=>{/*colocar alerta aqui*/})
+    // }
+   
+    // facebookShare(){
+    //   this.socialSharing.shareViaFacebook("Ajude-me a encontrar: " + this.pessoa.nome,this.obterImagem(this.pessoa), null)
+    //   .then(()=>{ /*colocar alerta aqui*/ },
+    //   ()=>{/*colocar alerta aqui*/})
+    // }
+
+  }
 }

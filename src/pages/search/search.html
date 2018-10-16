@@ -15,7 +15,7 @@
   <ion-list > 
       <ion-list-header>Dados Pessoais</ion-list-header>
       <ion-item>
-        <ion-label color="primary" floating>Nome Completo</ion-label>
+        <ion-label color="primary" floating>Nome</ion-label>
         <ion-input name="nome" type="text" [(ngModel)]="nomeCompleto" ></ion-input>
       </ion-item>
 
@@ -31,17 +31,6 @@
         </ion-select>
       </ion-item>
 
-      <ion-item>
-        <ion-label color="primary" floating>Altura</ion-label>
-        <ion-select type="text" [(ngModel)]="altura"  >
-          <ion-option value="anao">Anão</ion-option>
-          <ion-option value="ate_160">até 1,60</ion-option>
-          <ion-option value="de_160_ate_170">de 1,60 até 1,70</ion-option>
-          <ion-option value="de_170_ate_180">de 1,70 até 1,80</ion-option>
-          <ion-option value="acima_de_180">acima de 1,80</ion-option>
-          <ion-option value=undefined>nenhum</ion-option>
-        </ion-select>
-      </ion-item>
 
       <ion-item>
         <ion-label color="primary" floating>Sexo</ion-label>
@@ -67,6 +56,19 @@
    <!-- Lista de aparencia --> 
     <ion-list>
       <ion-list-header>Aparência</ion-list-header>
+
+      <ion-item>
+          <ion-label color="primary" floating>Altura</ion-label>
+          <ion-select type="text" [(ngModel)]="altura"  >
+            <ion-option value="anao">Anão</ion-option>
+            <ion-option value="ate_160">até 1,60</ion-option>
+            <ion-option value="de_160_ate_170">de 1,60 até 1,70</ion-option>
+            <ion-option value="de_170_ate_180">de 1,70 até 1,80</ion-option>
+            <ion-option value="acima_de_180">acima de 1,80</ion-option>
+            <ion-option value=undefined>nenhum</ion-option>
+          </ion-select>
+        </ion-item>
+
       <ion-item>
         <ion-label color="primary" floating>Cor de Pele</ion-label>
         <ion-select type="text" [(ngModel)]="corPele">

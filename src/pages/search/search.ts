@@ -100,10 +100,8 @@ export class SearchPage {
    let loading = this.loadingCtrl.create({
      content: 'Carregando...'
    });
-  loading.present();
-  loading.dismiss().then(() => {
-    this.recebendoResultado();
-  });
+  loading.present().then(() => {this.recebendoResultado();});
+  loading.dismiss().then(() => {});
  }
  /**
   * Método que cria a URL que será enviada ao servidor com os dados de busca e  que fará a chamada para outra página

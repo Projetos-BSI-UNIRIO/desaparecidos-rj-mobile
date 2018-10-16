@@ -1,11 +1,11 @@
 page-cartazete-generator {
-    
-
-    #icones li
-    {
-      display: inline;
-      list-style-type: none;
-      padding-right: 5%;
+ 
+    ion-navbar{
+      max-height: 150px;
+    }  
+  #cartazete{
+      
+      max-height: 475px;max-width: 375px;display: block;margin: auto;
     }
 
 }

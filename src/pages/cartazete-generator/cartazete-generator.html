@@ -7,7 +7,12 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Cartazete de {{pessoa.nome}}</ion-title>
+    <ion-title> Cartazete </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="share()">
+        <ion-icon name="share" style="margin-right:30px;"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -15,14 +20,6 @@
 
 <ion-content padding >
   <!-- Exibe cartazete da pessoa -->
-    <img src="{{ obterImagem(pessoa) }}" style="max-height: 425px;max-width: 325px;display: block;margin: auto;" /><br>
-    <h5 style="text-align: left;">Compartilhe nas redes sociais: </h5>
-    
-    <!-- Icones das redes sociais chamando seus respectivos metódos -->
-    <ul id="icones" style="text-align: center; ">
-      <li><img src="assets/img/facebook_icon.png" style="max-height: 45px;max-width: 45px;"(click)="facebookShare()"></li>
-      <li><img src="assets/img/twitter_icon.png" style="max-height: 45px;max-width: 45px;"(click)="twitterShare()"></li>
-      <li><img src="assets/img/whatsapp_icon.png" style="max-height: 42px;max-width: 42px;" (click)="whatsappShare()"></li>
-    </ul>
+    <img src="{{ obterImagem(pessoa) }}" id="cartazete" /><br>
  
   </ion-content>
