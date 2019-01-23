@@ -9,6 +9,7 @@ import { SearchPage } from '../pages/search/search';
 import { SearchOptionPage } from '../pages/search-option/search-option';
 import { Contact } from '../pages/contact/contact';
 import { List } from '../pages/list/list';
+import { LoginPage } from '../pages/login/login';
 import { HttpModule } from '@angular/http';
 import { WebApiService } from '../providers/web-api-service';
 import { ResultsPage } from '../pages/results/results';
@@ -34,13 +35,14 @@ import { NativeGeocoder} from '@ionic-native/native-geocoder';
     NoResultsPage,
     CartazeteGeneratorPage,
     CameraPage,
-    SearchOptionPage
+    SearchOptionPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -53,13 +55,14 @@ import { NativeGeocoder} from '@ionic-native/native-geocoder';
     NoResultsPage,
     CartazeteGeneratorPage,
     SearchOptionPage,
-    CameraPage
+    CameraPage,
+    LoginPage
     ],
   providers: [
     StatusBar,
     Camera,
     Geolocation,
-    NativeGeocoder, 
+    NativeGeocoder,
     [WebApiService],
     SocialSharing,
 
@@ -68,5 +71,3 @@ import { NativeGeocoder} from '@ionic-native/native-geocoder';
 })
 
 export class AppModule { }
-
-

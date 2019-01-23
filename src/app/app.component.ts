@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HomePage } from '../pages/home/home';
 import { SearchOptionPage } from '../pages/search-option/search-option';
 import { Contact } from '../pages/contact/contact';
+import { LoginPage } from '../pages/login/login';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Contact } from '../pages/contact/contact';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage; //Página de abertura do aplicativo
+  rootPage: any = LoginPage; //Página de abertura do aplicativo
 
   pages: Array<{title: string, component: any}>;
 
@@ -23,7 +24,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Buscar', component: SearchOptionPage },
-      { title: 'Sobre nós', component:  Contact}
+      { title: 'Sobre nós', component:  Contact},
+      { title: 'Login', component:  LoginPage}
 
     ];
 
