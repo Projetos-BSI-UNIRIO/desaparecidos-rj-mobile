@@ -24,7 +24,7 @@ export class LoginPage {
         "username" : this.username,
         "password" : this.password
     };
-    var autenticacao = "http://35.199.78.162/webserver/desaparecidos/userLogin/?dados=" + encodeURIComponent(JSON.stringify(user));
+    var autenticacao = 'http://35.199.78.162/webserver/desaparecidos/userLoginMobile/?dados=' + encodeURIComponent(JSON.stringify(user));
     if(autenticacao){
       this.navCtrl.push(HomePage);
     }
