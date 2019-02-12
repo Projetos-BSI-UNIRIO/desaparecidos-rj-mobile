@@ -117,7 +117,7 @@ export class SearchPage {
   recebendoResultado(){    // Call API to get people searched    
     this.desabilitarBotaoBuscar=true;        
     
-    this.webapi.searchPeople(this.montaURL(this.dadosDesaparecido())).subscribe( //monta URL com os dados do Json
+    this.webapi.enviarDadosServidor(this.montaURL(this.dadosDesaparecido())).subscribe( //monta URL com os dados do Json
       data => { //se não houver erro, entrará nesse bloco de comando
         this.pessoas = data.json();
         this.pessoas= this.pessoas.desaparecidos;

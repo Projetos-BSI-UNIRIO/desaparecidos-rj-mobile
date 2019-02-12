@@ -10,10 +10,11 @@ export class WebApiService {
     console.log('Hello WebApiService Provider');
   }
 
-  searchPeople(paramsUrl) {
+  enviarDadosServidor(paramsUrl) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json, */*');
     return this.http.get(paramsUrl, { headers: headers });
   }
+
 }

@@ -6,9 +6,6 @@
 -->
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>Login</ion-title>
   </ion-navbar>
 
@@ -23,23 +20,19 @@
   <ion-list >
     <ion-item>
       <ion-label color="primary" floating>E-mail</ion-label>
-      <ion-input name="mae" type="text" [(ngModel)]="username" ></ion-input>
+      <ion-input name="username" type="text" [(ngModel)]="username" ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label color="primary" floating>Senha</ion-label>
-      <ion-input name="pai" type="text" [(ngModel)]="password"></ion-input>
+      <ion-input name="password" type="password" [(ngModel)]="password"></ion-input>
     </ion-item>
   </ion-list>
   <div padding style="text-align: center;">
 
-    <button ion-button (click)="irParaHome()">Começar a busca</button>
+    <button ion-button (click)="logar()">Login</button>
   </div>
 </div>
 
-<div padding style="text-align: center;">
-
-  <button ion-button (click)="irParaPaginaDeBusca()">Começar a busca</button>
-</div>
 
 </ion-content>
