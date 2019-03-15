@@ -16,5 +16,4 @@ export class WebApiService {
     headers.append('Accept', 'application/json, */*');
     return this.http.get(paramsUrl, { headers: headers });
   }
-
 }

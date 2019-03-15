@@ -9,7 +9,6 @@ import { SearchPage } from '../pages/search/search';
 import { SearchOptionPage } from '../pages/search-option/search-option';
 import { Contact } from '../pages/contact/contact';
 import { List } from '../pages/list/list';
-import { LoginPage } from '../pages/login/login';
 import { HttpModule } from '@angular/http';
 import { WebApiService } from '../providers/web-api-service';
 import { ResultsPage } from '../pages/results/results';
@@ -19,7 +18,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
 import { NativeGeocoder} from '@ionic-native/native-geocoder';
-
+import { LoginPage } from '../pages/login/login';
 
 
 
@@ -36,13 +35,13 @@ import { NativeGeocoder} from '@ionic-native/native-geocoder';
     CartazeteGeneratorPage,
     CameraPage,
     SearchOptionPage,
-    LoginPage
+	LoginPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,13 +55,13 @@ import { NativeGeocoder} from '@ionic-native/native-geocoder';
     CartazeteGeneratorPage,
     SearchOptionPage,
     CameraPage,
-    LoginPage
+	LoginPage
     ],
   providers: [
     StatusBar,
     Camera,
     Geolocation,
-    NativeGeocoder,
+    NativeGeocoder, 
     [WebApiService],
     SocialSharing,
 
@@ -71,3 +70,5 @@ import { NativeGeocoder} from '@ionic-native/native-geocoder';
 })
 
 export class AppModule { }
+
+
