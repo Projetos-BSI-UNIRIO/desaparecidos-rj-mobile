@@ -17,7 +17,7 @@ export class LoginPage {
 
   }
   montaURL(user){
-    return this.autenticacao = "http://35.199.78.162/webserver/desaparecidos/userLogin/?dados=" + encodeURIComponent(JSON.stringify(user));
+    return this.autenticacao = "http://35.199.78.162/webserver/desaparecidos/userLoginMobile/?dados=" + encodeURIComponent(JSON.stringify(user));
 
   }
   dadosUsuario(){
