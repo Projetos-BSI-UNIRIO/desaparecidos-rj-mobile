@@ -6,8 +6,8 @@ import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html',
-  providers: [WebApiService]
+  providers: [WebApiService],
+  templateUrl: 'login.html'
 })
 
 export class LoginPage {
@@ -17,7 +17,7 @@ export class LoginPage {
 
   }
   montaURL(user){
-    return this.autenticacao = "http://35.199.78.162/webserver/desaparecidos/userLoginMobile/?dados=" + encodeURIComponent(JSON.stringify(user));
+    return this.autenticacao = "https://desaparecidos-rj-web1.herokuapp.com/webserver/loginmobile/?" + encodeURIComponent(JSON.stringify(user));
 
   }
   dadosUsuario(){
@@ -25,7 +25,7 @@ export class LoginPage {
         "username" : this.username,
         "password" : this.password
     };
-    
+
     return this.user;
   }
 
@@ -33,11 +33,11 @@ export class LoginPage {
   logar(){ 
     this.webapi.enviarDadosServidor(this.montaURL(this.dadosUsuario())).subscribe( //monta URL com os dados do Json
       data => { //se não houver erro, entrará nesse bloco de comando
-        this.navCtrl.push(HomePage);          
-        
+        this.navCtrl.push(HomePage);
+
       }, err => { //em caso de erro, entrará nesse bloco de comando
-        alert("Usuário ou Senha incorretos");        
-        // alert(err);
+        //alert("Usuário ou Senha incorretos");
+         alert(err);
       }, () => {}
     );
   }

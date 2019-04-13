@@ -12,8 +12,12 @@ export class WebApiService {
 
   enviarDadosServidor(paramsUrl) {
     let headers = new Headers();
+    headers.append('Access-Control-Allow-Origin' , '*');
+    headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json, */*');
-    return this.http.get(paramsUrl, { headers: headers });
+    headers.append('X-CSRFToken', 'csrftoken');
+
+    return this.http.post(paramsUrl, { headers: headers });
   }
 }

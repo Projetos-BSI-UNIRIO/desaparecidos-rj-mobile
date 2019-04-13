@@ -21,7 +21,7 @@ public cartazeteUrl;
   constructor(public navCtrl: NavController, public navParams: NavParams, private socialSharing: SocialSharing, platform: Platform) {
     this.pessoa = this.navParams.get("pessoa");
     this.platform = platform;
-    
+
   }
 
   ionViewDidLoad() {
@@ -30,10 +30,10 @@ public cartazeteUrl;
 
 /**
  * Retorna o cartazete do servidor
- * 
+ *
 */
 obterImagem(pessoa) {
-      this.cartazeteUrl=`http://35.199.78.162${pessoa.cartazete}`;
+      this.cartazeteUrl=`http://desaparecidos-rj-web1.herokuapp.com${pessoa.cartazete}`;
       return this.cartazeteUrl;
     }
 
@@ -42,12 +42,12 @@ obterImagem(pessoa) {
  * @whatsapp
  * @twitter
  * @facebook
- * 
+ *
 */
 
   share() {
     this.platform.ready().then(() => {
-      if((<any>window).plugins.socialsharing) {  
+      if((<any>window).plugins.socialsharing) {
           (<any>window).plugins.socialsharing.share("Compartilhe o cartaz com seus conhecidos!", null, this.cartazeteUrl, null);
       }
   });
@@ -58,13 +58,13 @@ obterImagem(pessoa) {
     //     .then(()=>{ /*colocar alerta aqui*/ },
     //     ()=>{/*colocar alerta aqui*/})
     // }
-   
+
     // twitterShare(){
     //   this.socialSharing.shareViaTwitter("Ajude-me a encontrar: " + this.pessoa.nome,this.obterImagem(this.pessoa),null)
     //   .then(()=>{ /*colocar alerta aqui*/ },
     //   ()=>{/*colocar alerta aqui*/})
     // }
-   
+
     // facebookShare(){
     //   this.socialSharing.shareViaFacebook("Ajude-me a encontrar: " + this.pessoa.nome,this.obterImagem(this.pessoa), null)
     //   .then(()=>{ /*colocar alerta aqui*/ },

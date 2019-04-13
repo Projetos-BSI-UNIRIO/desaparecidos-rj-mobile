@@ -45,13 +45,13 @@ export class ResultsPage {
 
 
   obterImagem(){
-      return `http://35.199.78.162${this.pessoa.foto}`;
+      return `http://desaparecidos-rj-web1.herokuapp.com${this.pessoa.foto}`;
     }
- 
-    
-  /**  
+
+
+  /**
    * Tratamento de exibição de informações referentes à idade.
-   */  
+   */
   tratamentoDeIdade(){
     if(this.pessoa.idade_aparente =="ate_18_anos"){
       this.pessoa.idade_aparente ="até 18 anos";
@@ -157,11 +157,11 @@ export class ResultsPage {
       this.pai ="não informado";
     }
 
-    
+
   }
-  /**   
+  /**
    * Tratamento de exibição de informações referentes às informações adicionais.
-   */  
+   */
   tratamentoInformacoesAdicionais(){
     if(this.pessoa.possui_tatuagem==true){
       this.tatuagem = "sim";
@@ -188,9 +188,9 @@ export class ResultsPage {
       this.amputacao = "não";
     }
   }
-/**   
+/**
    * Tratamento de exibição de informações referentes à altura.
-   */  
+   */
   tratamentoDeAltura(){
     if(this.pessoa.faixa_altura =="anao"){
       this.pessoa.faixa_altura ="anão";
@@ -219,7 +219,7 @@ export class ResultsPage {
   }
 
   getEndereco(){
-    
+
     this.geolocation.getCurrentPosition().then((resp) => {
     this.latitude= resp.coords.latitude;
     this.longitude=resp.coords.longitude;
@@ -227,7 +227,7 @@ export class ResultsPage {
         .then((result: NativeGeocoderReverseResult) => {
             this.localizacao = result[0];
             this.tratandoEndereco(this.localizacao);
-            
+
           })
           .catch((error: any) => alert(error));
 
@@ -235,9 +235,9 @@ export class ResultsPage {
       console.log('Error getting location', error);
     });
 
-  
+
   }
-  
+
   tratandoEndereco(endereco){
     this.countryCode=endereco.countryCode;
     this.countryName=endereco.countryName;
@@ -248,8 +248,8 @@ export class ResultsPage {
     this.sublocality=endereco.subLocality;
     this.thoroughfare=endereco.thoroughfare;
     this.subThoroughfare=endereco.subThoroughfare;
-  
+
   }
-  
+
 
 }

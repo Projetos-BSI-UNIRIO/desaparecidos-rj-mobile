@@ -12,9 +12,9 @@ import { WebApiService } from '../../providers/web-api-service';
 })
 
 export class SearchPage {
-  public nomeCompleto=""; mae=""; pai=""; idade; altura; sexo; corPele; corCabelo; corOlhos; tipoFisico; infoAdicionaisAparencia; tatuagem; cicatriz; amputado; deficiente; url; 
-  public pessoas; desabilitarBotaoBuscar; 
-  
+  public nomeCompleto=""; mae=""; pai=""; idade; altura; sexo; corPele; corCabelo; corOlhos; tipoFisico; infoAdicionaisAparencia; tatuagem; cicatriz; amputado; deficiente; url;
+  public pessoas; desabilitarBotaoBuscar;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private webapi: WebApiService, public loadingCtrl: LoadingController) {
   }
  /**
@@ -23,29 +23,29 @@ export class SearchPage {
   tratamentoInfoAdicionais(){
     if(this.infoAdicionaisAparencia != ""){
       for(var i=0; i<this.infoAdicionaisAparencia.length; i++){
-        
+
           if(this.infoAdicionaisAparencia[i]=="Tatuagem"){
             this.tatuagem = true;
           }
-        
+
           else if(this.infoAdicionaisAparencia[i]=="Cicatriz"){
             this.cicatriz = true;
           }
-          
+
           else if(this.infoAdicionaisAparencia[i]=="Deficiente"){
             this.deficiente = true;
           }
-          
+
           else{
             this.amputado = true;
           }
-          
+
         }
       }
       else{
         this.amputado=undefined;
         this.cicatriz=undefined;
-        this.tatuagem=undefined;     
+        this.tatuagem=undefined;
         this.deficiente=undefined;
       }
   }
@@ -76,21 +76,21 @@ export class SearchPage {
     return dadosDoDesaparecido;
   }
   /**
-   * Tratamento de campos escritos 
+   * Tratamento de campos escritos
    */
   tratamentoCamposTexto(){
     if(this.nomeCompleto!=""){
       this.nomeCompleto.trim()
     }
-      
+
     if(this.mae!=""){
       this.mae.trim();
     }
-  
+
     if(this.pai!=""){
       this.pai.trim();
     }
-    
+
 
   }
 /**
@@ -106,29 +106,29 @@ export class SearchPage {
  /**
   * Método que cria a URL que será enviada ao servidor com os dados de busca e  que fará a chamada para outra página
   * @param jsonDeEntrada : Json com os dados de busca inseridos pelo usuário
-  */ 
+  */
   montaURL(jsonDeEntrada) {
-  return "http://35.199.78.162/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));}
+  return "http://desaparecidos-rj-web1.herokuapp.com/webserver/desaparecidos/buscarDesaparecido/?dados=" + encodeURIComponent(JSON.stringify(jsonDeEntrada));}
 
     /**
      * Método que recebe os resultados do servidor
      */
 
-  recebendoResultado(){    // Call API to get people searched    
-    this.desabilitarBotaoBuscar=true;        
-    
+  recebendoResultado(){    // Call API to get people searched   
+    this.desabilitarBotaoBuscar=true;
+
     this.webapi.enviarDadosServidor(this.montaURL(this.dadosDesaparecido())).subscribe( //monta URL com os dados do Json
       data => { //se não houver erro, entrará nesse bloco de comando
         this.pessoas = data.json();
         this.pessoas= this.pessoas.desaparecidos;
         if(this.pessoas.length==0){
-          this.navCtrl.push(NoResultsPage);        
-        }        
+          this.navCtrl.push(NoResultsPage);
+        }       
         else{
-          this.navCtrl.push(List, {"pessoa": this.pessoas});          
+          this.navCtrl.push(List, {"pessoa": this.pessoas});
         }
       }, err => { //em caso de erro, entrará nesse bloco de comando
-        this.navCtrl.push(NoResultsPage);        
+        this.navCtrl.push(NoResultsPage);
         // alert(err);
       }, () => {}
     );
@@ -151,7 +151,7 @@ export class SearchPage {
     this.sexo=undefined;
     this.amputado=undefined;
     this.cicatriz=undefined;
-    this.tatuagem=undefined;     
+    this.tatuagem=undefined;
     this.deficiente=undefined;
     this.infoAdicionaisAparencia="";
     this.desabilitarBotaoBuscar=false;
@@ -160,9 +160,9 @@ export class SearchPage {
   /**
    * Limpa os dados do formulário (visualmente) ao sair da página de busca
    */
-  ionViewWillLeave(){   
+  ionViewWillLeave(){
     this.dadosDesaparecido();
-    
+
     this.infoAdicionaisAparencia=[];
     this.nomeCompleto ="";
     this.pai ="";
