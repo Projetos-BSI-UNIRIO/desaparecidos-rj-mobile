@@ -45,7 +45,7 @@ export class ResultsPage {
 
 
   obterImagem(){
-      return `http://desaparecidos-rj-web1.herokuapp.com${this.pessoa.foto}`;
+      return `http://desaparecidos-rj.guilhermecaeiro.me${this.pessoa.foto}`;
     }
 
 

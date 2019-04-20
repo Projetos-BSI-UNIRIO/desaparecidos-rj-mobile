@@ -33,7 +33,7 @@ public cartazeteUrl;
  *
 */
 obterImagem(pessoa) {
-      this.cartazeteUrl=`http://desaparecidos-rj-web1.herokuapp.com${pessoa.cartazete}`;
+      this.cartazeteUrl=`http://desaparecidos-rj.guilhermecaeiro.me${pessoa.cartazete}`;
       return this.cartazeteUrl;
     }
 

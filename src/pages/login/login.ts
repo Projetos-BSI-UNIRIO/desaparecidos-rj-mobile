@@ -35,7 +35,7 @@ export class LoginPage {
     let urlSearchParams = new URLSearchParams();
     urlSearchParams.append('username', this.username);
     urlSearchParams.append('password', this.password);
-    this.http.post('https://desaparecidos-rj-web1.herokuapp.com/webserver/loginmobile/', urlSearchParams).subscribe(
+    this.http.post('http://desaparecidos-rj.guilhermecaeiro.me/webserver/loginmobile/', urlSearchParams).subscribe(
       data => {
         this.navCtrl.push(HomePage);
       },

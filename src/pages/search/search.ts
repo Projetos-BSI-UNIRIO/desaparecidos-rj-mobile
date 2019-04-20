@@ -110,7 +110,7 @@ export class SearchPage {
   * @param jsonDeEntrada : Json com os dados de busca inseridos pelo usuário
   */
   montaURL(jsonDeEntrada) {
-  return "http://desaparecidos-rj-web1.herokuapp.com/webserver/desaparecidos/buscarDesaparecido/?" + encodeURIComponent(JSON.stringify(jsonDeEntrada));}
+  return "http://desaparecidos-rj.guilhermecaeiro.me/webserver/desaparecidos/buscarDesaparecido/?" + encodeURIComponent(JSON.stringify(jsonDeEntrada));}
 
     /**
      * Método que recebe os resultados do servidor
@@ -136,7 +136,7 @@ export class SearchPage {
     urlSearchParams.append('sexo', this.sexo);
     */
     urlSearchParams.append('dados', JSON.stringify(dados) );
-    this.http.post('http://desaparecidos-rj-web1.herokuapp.com/webserver/desaparecidos/buscarDesaparecido/', urlSearchParams).subscribe(
+    this.http.post('http://desaparecidos-rj.guilhermecaeiro.me/webserver/desaparecidos/buscarDesaparecido/', urlSearchParams).subscribe(
       data => { //se não houver erro, entrará nesse bloco de comando
         this.pessoas = data.json();
         this.pessoas= this.pessoas.desaparecidos;
