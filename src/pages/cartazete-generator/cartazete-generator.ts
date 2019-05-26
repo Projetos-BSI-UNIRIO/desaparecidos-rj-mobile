@@ -34,7 +34,12 @@ public cartazeteUrl;
 */
 obterImagem(pessoa) {
       this.cartazeteUrl=`http://desaparecidos-rj.guilhermecaeiro.me${pessoa.cartazete}`;
-      return this.cartazeteUrl;
+      if(pessoa.cartazete){
+          return this.cartazeteUrl;
+      }
+      else{
+          return  'http://desaparecidos-rj.guilhermecaeiro.me/static/images/no-cartazete.png';
+      }
     }
 
 /**

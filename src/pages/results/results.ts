@@ -45,7 +45,13 @@ export class ResultsPage {
 
 
   obterImagem(){
-      return `http://desaparecidos-rj.guilhermecaeiro.me${this.pessoa.foto}`;
+      if(this.pessoa.foto){
+          return `http://desaparecidos-rj.guilhermecaeiro.me${this.pessoa.foto}`;
+      }
+      else{
+        return 'http://desaparecidos-rj.guilhermecaeiro.me/static/images/user-icon.png'
+      }
+
     }
 
 

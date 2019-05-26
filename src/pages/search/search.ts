@@ -120,21 +120,7 @@ export class SearchPage {
     this.desabilitarBotaoBuscar=true;
     let dados = this.dadosDesaparecido()
     let urlSearchParams = new URLSearchParams();
-    /*
-    urlSearchParams.append('nome', this.nomeCompleto);
-    urlSearchParams.append('nome_pai', this.pai);
-    urlSearchParams.append('nome_mae', this.mae);
-    urlSearchParams.append('idade_aparente', this.idade);
-    urlSearchParams.append('possui_cicatriz', this.cicatriz);
-    urlSearchParams.append('possui_tatuagem', this.tatuagem);
-    urlSearchParams.append('possui_deficiencia', this.deficiente);
-    urlSearchParams.append('sofreu_amputacao', this. amputado);
-    urlSearchParams.append('cor_olhos', this.corOlhos);
-    urlSearchParams.append('cor_pele', this.corPele);
-    urlSearchParams.append('cor_cabelos': this.corCabelo);
-    urlSearchParams.append('faixa_altura',this.altura);
-    urlSearchParams.append('sexo', this.sexo);
-    */
+  
     urlSearchParams.append('dados', JSON.stringify(dados) );
     this.http.post('http://desaparecidos-rj.guilhermecaeiro.me/webserver/desaparecidos/buscarDesaparecido/', urlSearchParams).subscribe(
       data => { //se não houver erro, entrará nesse bloco de comando
@@ -151,23 +137,7 @@ export class SearchPage {
         // alert(err);
       }, () => {}
       );
-    /*
-    this.webapi.enviarDadosServidor(this.montaURL(this.dadosDesaparecido())).subscribe( //monta URL com os dados do Json
-      data => { //se não houver erro, entrará nesse bloco de comando
-        this.pessoas = data.json();
-        this.pessoas= this.pessoas.desaparecidos;
-        if(this.pessoas.length==0){
-          this.navCtrl.push(NoResultsPage);
-        }       
-        else{
-          this.navCtrl.push(List, {"pessoa": this.pessoas});
-        }
-      }, err => { //em caso de erro, entrará nesse bloco de comando
-        this.navCtrl.push(NoResultsPage);
-        // alert(err);
-      }, () => {}
-    );
-    */
+
   }
 
   /**
