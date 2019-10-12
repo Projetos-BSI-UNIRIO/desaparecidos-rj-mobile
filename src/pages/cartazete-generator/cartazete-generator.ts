@@ -33,11 +33,18 @@ public cartazeteUrl;
  *
 */
 obterImagem(pessoa) {
-      this.cartazeteUrl=`http://desaparecidos-rj.guilhermecaeiro.me${pessoa.cartazete}`;
-      if(pessoa.cartazete){
+      this.cartazeteUrl=`http://desaparecidos-rj.guilhermecaeiro.me${pessoa.foto}`;
+      if(pessoa.foto){
+          document.getElementById("idade").innerHTML = pessoa.idade;
+          document.getElementById("quando").innerHTML = " ";
+          document.getElementById("local").innerHTML = " ";
+          //document.getElementById("nome1").innerHTML = "pessoa.nome";
           return this.cartazeteUrl;
+
+
       }
       else{
+          document.getElementById("botao").style.display = "none";
           return  'http://desaparecidos-rj.guilhermecaeiro.me/static/images/no-cartazete.png';
       }
     }

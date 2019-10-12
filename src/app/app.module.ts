@@ -19,9 +19,8 @@ import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
 import { NativeGeocoder} from '@ionic-native/native-geocoder';
 import { LoginPage } from '../pages/login/login';
-
-
-
+import { FileTransfer, FileTransferObject, FileUploadOptions} from '@ionic-native/file-transfer/ngx';
+import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 //Declaração de páginas (módulos) do aplicativo
 @NgModule({
   declarations: [
@@ -41,7 +40,7 @@ import { LoginPage } from '../pages/login/login';
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -58,10 +57,12 @@ import { LoginPage } from '../pages/login/login';
 	LoginPage
     ],
   providers: [
+    BackgroundMode,
+    FileTransfer,
     StatusBar,
     Camera,
     Geolocation,
-    NativeGeocoder, 
+    NativeGeocoder,
     [WebApiService],
     SocialSharing,
 
@@ -70,5 +71,3 @@ import { LoginPage } from '../pages/login/login';
 })
 
 export class AppModule { }
-
-

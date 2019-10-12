@@ -120,12 +120,12 @@ export class SearchPage {
     this.desabilitarBotaoBuscar=true;
     let dados = this.dadosDesaparecido()
     let urlSearchParams = new URLSearchParams();
-  
+
     urlSearchParams.append('dados', JSON.stringify(dados) );
     this.http.post('http://desaparecidos-rj.guilhermecaeiro.me/webserver/desaparecidos/buscarDesaparecido/', urlSearchParams).subscribe(
       data => { //se não houver erro, entrará nesse bloco de comando
         this.pessoas = data.json();
-        this.pessoas= this.pessoas.desaparecidos;
+        this.pessoas = this.pessoas.desaparecidos;
         if(this.pessoas.length==0){
           this.navCtrl.push(NoResultsPage);
         }       

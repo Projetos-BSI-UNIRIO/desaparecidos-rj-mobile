@@ -1,16 +1,15 @@
 <ion-header>
-        
+
           <ion-navbar>
             <ion-title>Foto</ion-title>
           </ion-navbar>
-        
+
         </ion-header>
-<ion-content padding  >    
-           
-    <img src={{this.imagem}} class="foto">
-        
+<ion-content padding  >
+    <img src={{foto}} class="foto">
+    <button ion-button (click)="enviarFoto()">Verificar</button>
     <ion-fab right bottom>
-        <button ion-fab style="background-color:black;" (click)="tirarFoto()"> 
+        <button ion-fab style="background-color:black;" (click)="tirarFoto()">
             <ion-icon name="md-camera"> </ion-icon>
         </button>
     </ion-fab>

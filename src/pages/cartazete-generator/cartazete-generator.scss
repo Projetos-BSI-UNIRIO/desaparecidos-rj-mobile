@@ -1,11 +1,37 @@
 page-cartazete-generator {
- 
+
     ion-navbar{
       max-height: 150px;
-    }  
+    }
   #cartazete{
-      
+
       max-height: 475px;max-width: 375px;display: block;margin: auto;
+    }
+
+    .idade {
+      position: absolute;
+      top: 50px;
+      right: 40px;
+    }
+    .quando {
+      position: absolute;
+      top: 60px;
+      right: 40px;
+    }
+    .local {
+      position: absolute;
+      top: 70px;
+      right: 40px;
+    }
+    .foto{
+      position: absolute;
+      top: 150px;
+      left: 80px;
+    }
+    .nome{
+      position: absolute;
+      top: 70px;
+      right: 40px;
     }
 
 }

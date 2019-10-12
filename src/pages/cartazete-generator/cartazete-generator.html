@@ -9,7 +9,7 @@
   <ion-navbar>
     <ion-title> Cartazete </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="share()">
+      <button ion-button icon-only (click)="share()" id = "botao">
         <ion-icon name="share" style="margin-right:30px;"></ion-icon>
       </button>
     </ion-buttons>
@@ -20,6 +20,13 @@
 
 <ion-content padding >
   <!-- Exibe cartazete da pessoa -->
-    <img src="{{ obterImagem(pessoa) }}" id="cartazete" /><br>
- 
+  <div class="container" id = "container">
+    <img src="assets/img/cartaz.jpg" id="cartazete" />
+    <div class="idade" id="idade">Bottom Left</div>
+    <div class="quando" id="quando">Top Left</div>
+    <div class="local" id="local">Top Right</div>
+
+    <div class="foto" id="foto"><img src = "{{ obterImagem(pessoa) }}" style="max-height: 140px;max-width:130px;"></div>
+   </div>
+
   </ion-content>
