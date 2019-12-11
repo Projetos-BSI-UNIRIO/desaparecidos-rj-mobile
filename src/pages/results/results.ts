@@ -16,7 +16,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 export class ResultsPage {
 
-  public pessoa; tatuagem; deficiencia; amputacao; cicatriz; cabelo; mae; pai; olhos;
+  public pessoa; tatuagem; deficiencia; amputacao; cicatriz; cabelo; mae; pai; olhos; data_desaparecimento; local_desaparecimento;
   latitude: any;
   longitude:any;
   localizacao:any;
@@ -41,6 +41,7 @@ export class ResultsPage {
     this.tratamentoMae();
     this.tratamentoPai();
     this.tratamentoDeOlhos();
+    //this.tratamentoDataDesaparcimento();
  }
 
 
@@ -49,7 +50,7 @@ export class ResultsPage {
           return `http://desaparecidos-rj.guilhermecaeiro.me${this.pessoa.foto}`;
       }
       else{
-        return 'http://desaparecidos-rj.guilhermecaeiro.me/static/images/user-icon.png'
+        return 'http://desaparecidos-rj.guilhermecaeiro.me/static/images/user-icon.png';
       }
 
     }
@@ -255,6 +256,10 @@ export class ResultsPage {
     this.thoroughfare=endereco.thoroughfare;
     this.subThoroughfare=endereco.subThoroughfare;
 
+  }
+  tratamentoDataDesaparcimento(){
+    var vetor = String(this.data_desaparecimento).split("-", 3);
+    this.data_desaparecimento = vetor[2]+"/"+vetor[1]+"/"+vetor[0];
   }
 
 

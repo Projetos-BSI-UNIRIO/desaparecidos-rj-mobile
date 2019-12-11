@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, Platform } from 'ionic-angular';
 import { SocialSharing } from '@ionic-native/social-sharing';
-
+import html2canvas from 'html2canvas';
+import domtoimage from 'dom-to-image';
+import { ToastController } from 'ionic-angular';
 /**
  * Generated class for the CartazeteGeneratorPage page.
  *
@@ -17,10 +19,20 @@ export class CartazeteGeneratorPage {
 public pessoa;
 public platform;
 public cartazeteUrl;
+public imagemCartaz;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private socialSharing: SocialSharing, platform: Platform) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private socialSharing: SocialSharing, platform: Platform, public toastCtrl: ToastController) {
     this.pessoa = this.navParams.get("pessoa");
     this.platform = platform;
+    var node = document.getElementById("container");
+    domtoimage.toPng(node)
+        .then(function (dataUrl) {
+            this.imagemCartaz = new Image();
+            this.imagemCartaz.src = dataUrl;
+        })
+        .catch(function (error) {
+          console.error('oops, something went wrong!', error);
+        });
 
   }
 
@@ -35,10 +47,6 @@ public cartazeteUrl;
 obterImagem(pessoa) {
       this.cartazeteUrl=`http://desaparecidos-rj.guilhermecaeiro.me${pessoa.foto}`;
       if(pessoa.foto){
-          document.getElementById("idade").innerHTML = pessoa.idade;
-          document.getElementById("quando").innerHTML = " ";
-          document.getElementById("local").innerHTML = " ";
-          //document.getElementById("nome1").innerHTML = "pessoa.nome";
           return this.cartazeteUrl;
 
 
@@ -58,10 +66,22 @@ obterImagem(pessoa) {
 */
 
   share() {
-    this.platform.ready().then(() => {
-      if((<any>window).plugins.socialsharing) {
-          (<any>window).plugins.socialsharing.share("Compartilhe o cartaz com seus conhecidos!", null, this.cartazeteUrl, null);
-      }
+    var node = document.getElementById("container");
+    domtoimage.toPng(node)
+      .then(function(dataUrl) {
+        var img = new Image();
+        img.src = dataUrl;
+        this.platform.ready().then(() => {
+          if((<any>window).plugins.socialsharing) {
+              (<any>window).plugins.socialsharing.share("Compartilhe o cartaz com seus conhecidos!", null, img, null);
+          }
+      })
+      .catch(function(error) {
+        document.getElementById("nome").innerHTML = error;
+        document.appendChild(error);
+        console.error('oops, something went wrong!', error);
+      });
+
   });
 
 

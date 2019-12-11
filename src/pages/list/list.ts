@@ -28,11 +28,11 @@ export class List {
 
 obterImagem(pessoa) {
 
-    return `http://35.199.78.162${pessoa.foto}`;
+    return `http://desaparecidos-rj.guilhermecaeiro.me${pessoa.foto}`;
   }
 
 /**
- * Vai para a próxima página (ResultsPage) e passa 
+ * Vai para a próxima página (ResultsPage) e passa
  * @param pessoa : informações referente a pessoa que está sendo exibida na tela
  */
 irParaResultadoDaBusca(pessoa){
