@@ -28,11 +28,17 @@ export class List {
 
 obterImagem(pessoa) {
 
-    return `http://desaparecidos-rj.guilhermecaeiro.me${pessoa.foto}`;
+      if(pessoa.foto){
+          return `http://desaparecidos-rj.guilhermecaeiro.me${pessoa.foto}`;
+      }
+      
+      else {
+        return 'http://desaparecidos-rj.guilhermecaeiro.me/static/images/user-icon.png'
+      }
   }
 
 /**
- * Vai para a próxima página (ResultsPage) e passa
+ * Vai para a próxima página (ResultsPage) e passa 
  * @param pessoa : informações referente a pessoa que está sendo exibida na tela
  */
 irParaResultadoDaBusca(pessoa){
