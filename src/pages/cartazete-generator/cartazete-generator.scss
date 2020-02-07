@@ -7,24 +7,27 @@ page-cartazete-generator {
 
       max-height: 475px;max-width: 375px;display: block;margin: auto;
     }
-
-
+    
+    .info {
+      margin-left: 185px;
+    }
+    
     .idade {
       position: absolute;
       top: 160px;
-      right: 50px;
+      margin-right: 50px;
       color: white;
     }
     .quando {
       position: absolute;
       top: 190px;
-      right: 50px;
+      margin-right: 50px;
       color: white;
     }
     .local {
       position: absolute;
       top: 220px;
-      right: 50px;
+      margin-right: 50px;
       color: white;
     }
     .foto{
@@ -37,6 +40,8 @@ page-cartazete-generator {
       position: absolute;
       top: 290px;
       left: 80px;
+      margin-right: 80px;
+      overflow: hidden;
       color: white;
     }
     p.infodes{

@@ -33,7 +33,21 @@ public imagemCartaz;
         .catch(function (error) {
           console.error('oops, something went wrong!', error);
         });
-
+  }
+  
+  melhorarData(){
+    var date = new Date(this.pessoa.data_desaparecimento);
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    var myFormattedDate = day + "/" + (monthIndex+1) + "/" + year + " às " + hours + ":" + minutes + ":" + seconds;
+        if (isNaN(year)) {
+            myFormattedDate = "Sem data.";
+        }
+    document.getElementById("dateExample").innerHTML = myFormattedDate;
   }
 
   ionViewDidLoad() {
