@@ -60,28 +60,30 @@ export class ResultsPage {
    * Tratamento de exibição de informações referentes à idade.
    */
   tratamentoDeIdade(){
-    if(this.pessoa.idade_aparente =="ate_18_anos"){
+    if(this.pessoa.idade_aparente =="ate_18_anos" || this.pessoa.idade_aparente =="até 18 anos"){
       this.pessoa.idade_aparente ="até 18 anos";
     }
-    else if(this.pessoa.idade_aparente =="de_19_ate_30_anos"){
+    else if(this.pessoa.idade_aparente =="de_19_ate_30_anos" || this.pessoa.idade_aparente =="de 19 até 30 anos"){
       this.pessoa.idade_aparente ="de 19 até 30 anos";
     }
-    else if(this.pessoa.idade_aparente =="de_31_ate_45_anos"){
+    else if(this.pessoa.idade_aparente =="de_31_ate_45_anos" || this.pessoa.idade_aparente =="de 31 até 45 anos"){
       this.pessoa.idade_aparente ="de 31 até 45 anos";
     }
-    else if(this.pessoa.idade_aparente =="de_46_ate_65_anos"){
+    else if(this.pessoa.idade_aparente =="de_46_ate_65_anos" || this.pessoa.idade_aparente =="de 46 até 65 anos"){
       this.pessoa.idade_aparente ="de 31 até 45 anos";
     }
-    else if(this.pessoa.idade_aparente =="mais_de_65_anos"){
+    else if(this.pessoa.idade_aparente =="mais_de_65_anos" || this.pessoa.idade_aparente =="mais de 65 anos"){
       this.pessoa.idade_aparente="mais de 65 anos";
     }
     else{
       this.pessoa.idade_aparente ="não informado";
     }
   }
+  
   /**
    * Tratamento de exibição de informações referentes à cor de cabelo.
    */
+   
   tratamentoDeCabelo(){
     if(this.pessoa.cor_cabelos =="aco"){
       this.cabelo ="aço";
@@ -89,13 +91,13 @@ export class ResultsPage {
     else if(this.pessoa.cor_cabelos =="branco"){
       this.cabelo ="branco";
     }
-    else if(this.pessoa.cor_cabelos =="castanho_claro"){
+    else if(this.pessoa.cor_cabelos =="castanho_claro" || this.pessoa.cor_cabelos =="castanho claro"){
       this.cabelo ="castanho claro";
     }
-    else if(this.pessoa.cor_cabelos =="castanho_escuro"){
+    else if(this.pessoa.cor_cabelos =="castanho_escuro" || this.pessoa.cor_cabelos =="castanho escuro"){
       this.cabelo="castanho escuro";
     }
-    else if(this.pessoa.cor_cabelos =="com_mechas_ou_faixas"){
+    else if(this.pessoa.cor_cabelos =="com_mechas_ou_faixas" || this.pessoa.cor_cabelos =="com mechas ou faixas"){
       this.cabelo="com mechas ou faixas";
     }
     else if(this.pessoa.cor_cabelos =="loiro"){
@@ -112,22 +114,20 @@ export class ResultsPage {
     }
   }
 
-
-
   tratamentoDeOlhos(){
-    if(this.pessoa.cor_olhos =="Azuis"){
+    if(this.pessoa.cor_olhos == "Azuis" || this.pessoa.cor_olhos == "azuis"){
       this.olhos ="azuis";
     }
-    else if(this.pessoa.cor_olhos =="castanhos_claros"){
+    else if(this.pessoa.cor_olhos =="castanhos_claros" || this.pessoa.cor_olhos =="castanhos claros"){
       this.olhos ="castanhos claros";
     }
-    else if(this.pessoa.cor_olhos =="castanhos_escuros"){
+    else if(this.pessoa.cor_olhos =="castanhos_escuros" || this.pessoa.cor_olhos =="castanhos escuros"){
       this.olhos ="castanhos escuros";
     }
     else if(this.pessoa.cor_olhos =="cinzentos"){
       this.olhos="cinzentos";
     }
-    else if(this.pessoa.cor_olhos =="desiguais_na_cor"){
+    else if(this.pessoa.cor_olhos =="desiguais_na_cor" || this.pessoa.cor_olhos =="desiguais na cor"){
       this.olhos="desiguais na cor";
     }
     else if(this.pessoa.cor_olhos =="pretos"){
@@ -199,19 +199,19 @@ export class ResultsPage {
    * Tratamento de exibição de informações referentes à altura.
    */
   tratamentoDeAltura(){
-    if(this.pessoa.faixa_altura =="anao"){
-      this.pessoa.faixa_altura ="anão";
+    if(this.pessoa.faixa_altura == "anao" || this.pessoa.faixa_altura == "anão"){
+      this.pessoa.faixa_altura = "anão";
     }
-    else if(this.pessoa.faixa_altura =="ate_160"){
+    else if(this.pessoa.faixa_altura =="ate_160" || this.pessoa.faixa_altura == "até 1,60"){
       this.pessoa.faixa_altura ="até 1,60";
     }
-    else if(this.pessoa.faixa_altura =="de_160_ate_170"){
+    else if(this.pessoa.faixa_altura =="de_160_ate_170" || this.pessoa.faixa_altura == "de 1,60 até 1,70"){
       this.pessoa.faixa_altura ="de 1,60 até 1,70";
     }
-    else if(this.pessoa.faixa_altura =="de_170_ate_180"){
+    else if(this.pessoa.faixa_altura =="de_170_ate_180" || this.pessoa.faixa_altura == "de 1,70 até 1,80"){
       this.pessoa.faixa_altura ="de 1,70 até 1,80";
     }
-    else if(this.pessoa.faixa_altura =="acima_de_180"){
+    else if(this.pessoa.faixa_altura =="acima_de_180" || this.pessoa.faixa_altura == "acima de 1,80"){
       this.pessoa.faixa_altura ="acima de 1,80";
     }
     else{
