@@ -3,6 +3,7 @@ import { NavController, NavParams, Platform } from 'ionic-angular';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import html2canvas from 'html2canvas';
 import domtoimage from 'dom-to-image';
+import { PrintnpmProvider } from '../../providers/printnpm/printnpm';
 import { ToastController } from 'ionic-angular';
 /**
  * Generated class for the CartazeteGeneratorPage page.
@@ -21,7 +22,7 @@ public platform;
 public cartazeteUrl;
 public imagemCartaz;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private socialSharing: SocialSharing, platform: Platform, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private socialSharing: SocialSharing, platform: Platform, public toastCtrl: ToastController, private printService: PrintnpmProvider) {
     this.pessoa = this.navParams.get("pessoa");
     this.platform = platform;
     var node = document.getElementById("container");
@@ -33,6 +34,22 @@ public imagemCartaz;
         .catch(function (error) {
           console.error('oops, something went wrong!', error);
         });
+  }
+  
+  print(componentName) {
+    this.printService.print(componentName);
+  }
+  
+  capturar(){
+    var divImagem = document.getElementById("container");
+    html2canvas(divImagem).then(function(canvas) {
+        var imagem = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        var a = document.createElement('a');
+        a.href = imagem;
+        a.download = '{{ pessoa.nome }}.png';
+        a.click();
+        document.write('<img src="+imagem+"/>');
+    });
   }
   
   melhorarData(){
@@ -80,23 +97,13 @@ obterImagem(pessoa) {
 */
 
   share() {
-    var node = document.getElementById("container");
-    domtoimage.toPng(node)
-      .then(function(dataUrl) {
-        var img = new Image();
-        img.src = dataUrl;
-        this.platform.ready().then(() => {
-          if((<any>window).plugins.socialsharing) {
-              (<any>window).plugins.socialsharing.share("Compartilhe o cartaz com seus conhecidos!", null, img, null);
-          }
-      })
-      .catch(function(error) {
-        document.getElementById("nome").innerHTML = error;
-        document.appendChild(error);
-        console.error('oops, something went wrong!', error);
-      });
-
-  });
+    var cartaz = "https://i.ibb.co/" + this.pessoa.nome_no_cartazete + ".png";
+    this.platform.ready().then(() => {
+        if((<any>window).plugins.socialsharing) {
+            (<any>window).plugins.socialsharing.share("Compartilhe o cartaz com seus conhecidos!", null, cartaz, null);
+        }
+    });
+  }
 
 
     // whatsappShare(){
@@ -118,4 +125,3 @@ obterImagem(pessoa) {
     // }
 
   }
-}

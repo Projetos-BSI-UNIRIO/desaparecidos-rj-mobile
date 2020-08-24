@@ -1,34 +1,46 @@
 <!--
-  Generated template for the CartazeteGeneratorPage page.
+Generated template for the CartazeteGeneratorPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
+See http://ionicframework.com/docs/components/#navigation for more info on
+Ionic pages and navigation.
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title> Cartazete </ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="share()" id = "botao">
-        <ion-icon name="share" style="margin-right:30px;"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title> Cartazete </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="share()" id = "botao">
+                <ion-icon name="share" style="margin-right:30px;"></ion-icon>
+            </button>
+            <!--<button ion-button (click)="print('container')">
+                <ion-icon name="print"></ion-icon>
+            </button>-->
+        </ion-buttons>
+    </ion-navbar>
 
 </ion-header>
 
 <ion-content padding >
 
-{{ melhorarData() }}
-  <!-- Exibe cartazete da pessoa -->
-  <div class="container" id = "container">
-    <img src="assets/img/cartaz.jpg" id="cartazete" />
-    <div class="info" id="info" >
-      <div class="idade" id="idade"><p class="infodes">Idade: {{ pessoa.idade_aparente }}</p></div>
-      <div class="quando" id="quando"><p class="infodes" id="dateExample"></p></div>
-      <div class="local" id="local"><p class="infodes">Local: {{ pessoa.local_desaparecimento }}</p></div>
-    </div>
-    <div class="nome" id="nome"><p>{{ pessoa.nome }}</p></div>
-    <div class="foto" id="foto"><img src = "{{ obterImagem(pessoa) }}" style="max-height: 140px;max-width:130px;"></div>
-   </div>
-  </ion-content>
+    <img src="https://i.ibb.co/{{pessoa.nome_no_cartazete}}.png" border="0">
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>-->
+    <!--{{ melhorarData() }}-->
+    <!-- Exibe cartazete da pessoa -->
+    <!--<div class="container" id = "container">
+        <img src="assets/img/cartaz.jpg" id="cartazete" />
+        <div class="info" id="info" >
+            <div class="idade" id="idade"><p class="infodes">Idade: {{ pessoa.idade_aparente }}</p></div>
+            <div class="quando" id="quando"><p class="infodes" id="dateExample"></p></div>
+            <div class="local" id="local"><p class="infodes">Local: {{ pessoa.local_desaparecimento }}</p></div>
+        </div>
+        <div class="nome" id="nome"><p>{{ pessoa.nome }}</p></div>
+        <div class="foto" id="foto"><img src = "{{ obterImagem(pessoa) }}" style="max-height: 140px;max-width:130px;"></div>
+    </div>-->
+    
+    <!--<ion-buttons>
+     <button ion-button (click)="domtoimagejpg()"> JPG </button>
+     <button ion-button (click)="domtoimagepng()"> PNG </button>
+     <button ion-button (click)="capturar()"> DOWNLOAD </button>      
+    </ion-buttons>-->
+
+</ion-content>
